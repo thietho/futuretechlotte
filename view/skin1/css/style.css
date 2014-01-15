@@ -363,7 +363,8 @@ input.ben-button:active {border-style: inset;}
 #ben-main {
 	margin: 0 auto;
 	width: 1080px;
-	background:#FFF;
+	height:1920px;
+	
 }
 
 
@@ -497,7 +498,7 @@ display:block;
 /*---------- BODY AREA ------------*/
 #ben-content {margin:0 auto; width:1080px}
 
-#ben-maincontent{}
+#ben-maincontent{ width:1045px; margin:0 auto}
 .ben-two-columns #ben-maincontent{width: 750px;}
 .ben-three-columns #ben-maincontent{width:896px; margin:0 2px;}
 .ben-three-columns-right #ben-maincontent{width:520px; margin-right:20px}
@@ -829,5 +830,14 @@ ul#menu li ul li div:hover {
 #ben-header-bottom
 {
 	color:#000;
+	font-weight:bold;
 	
+}
+#ben-info-left
+{
+	width:765px;
+}
+#ben-info-right
+{
+	width:262px;
 }
