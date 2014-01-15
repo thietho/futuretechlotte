@@ -4,12 +4,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Lotte Cinema</title>
 </head>
+
 <link href="view/skin1/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 <script src="view/skin1/js/jquery-1.9.1.js"></script>
 <script src="view/skin1/js/jquery-ui-1.10.3.custom.js"></script>
 
 <link href="view/skin1/css/style.css" rel="stylesheet">
-<body>
+<script type="text/javascript">
+function time() {
+	var today = new Date();
+	var weekday=new Array(7);
+	weekday[0]="Sunday";
+	weekday[1]="Monday";
+	weekday[2]="Tuesday";
+	weekday[3]="Wednesday";
+	weekday[4]="Thursday";
+	weekday[5]="Friday";
+	weekday[6]="Saturday";
+	var day = weekday[today.getDay()]; 
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	var h=today.getHours();
+	var m=today.getMinutes();
+	var s=today.getSeconds();
+	m=checkTime(m);
+	s=checkTime(s);
+	nowTime = h+":"+m+":"+s;
+	if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy;
+	
+	//tmp='<span class="date">'+today+' | '+nowTime+'</span>';
+	
+	//document.getElementById("clock").innerHTML=tmp;
+	$('.day').html(day);
+	$('.date').html(today);
+	$('.time').html(h+":"+m);
+	clocktime=setTimeout("time()","1000","JavaScript");
+	function checkTime(i)
+	{
+	if (i<10)
+	  {
+	  i="0" + i;
+	  }
+	return i;
+	}
+}
+</script>
+<body onload="time()">
 	<div id="ben-body">
     <div id="ben-main">
     	<div id="ben-header">
@@ -18,11 +59,11 @@
                 	<table>
                     	<tr>
                         	<td>
-                    			<div class="day">Monday</div>
-                    			<div class="date">06.01.2014</div>        
+                    			<div class="day"></div>
+                    			<div class="date"></div>        
                             </td>
                             <td>
-                            	<div class="time">11:52</div>
+                            	<div class="time"></div>
                             </td>
                         </tr>
                 	
@@ -79,8 +120,7 @@
                                     </div>
                                     <div id="moviecontent" class="ben-right">
                                         Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
-                                        Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
-                                        Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
+                                        <center><iframe width="450" height="315" src="//www.youtube.com/embed/47_-pqoPDVQ?rel=0" frameborder="0" allowfullscreen></iframe></center>
                                         Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
                                         Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
                                         Khởi chiếu Từ 10/01/2014 đến 31/01/2014 Loại phim:Hoạt hình, Phiêu lưu Diễn viên:Charlie Rowe, Karl Urban, Angourie Rice Đạo diễn:Barry Cook, Neil Nightingale Thời lượng:1 tiếng 27 phút Phiên bản:Tiếng Anh với phụ đề Tiếng Việt Hãng: Cụm rạp:Cộng Hòa, Nam Sài Gòn, Diamond, Landmark, Hà Đông, Nha Trang, Đà Nẵng, Biên Hòa, Bình Dương, Phan Thiết, Cantavil
@@ -108,6 +148,7 @@
 								
 							}
 							showTabItem('movieinfo');
+							
 							</script>
                             <div class="ben-info-banner ben-item">
                             	<img src="view/skin1/image/banner1.png" width="765" height="263" />
