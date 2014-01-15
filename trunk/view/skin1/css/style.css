@@ -875,5 +875,21 @@ ul#menu li ul li div:hover {
 }
 #ben-info-movie
 {
-	background:#fff;	
+	background:#fff;
+	color:#000;
+	
+}
+.ben-tabs-item
+{
+	padding:15px 15px;	
+}
+#movieinfo-image
+{
+	width:214px;	
+}
+#moviecontent
+{
+	width:500px;
+	height:403px;
+	overflow:auto;
 }
