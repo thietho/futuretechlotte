@@ -869,6 +869,10 @@ ul#menu li ul li div:hover {
 {
 	background:#58595b;
 }
+.ben-tabs td.curent
+{
+	background:#58595b;
+}
 .ben-tabs td:last-child
 {
 	border-right:none;
@@ -879,9 +883,17 @@ ul#menu li ul li div:hover {
 	color:#000;
 	
 }
+.ben-tabs-show
+{
+	height:445px;
+	overflow:auto;
+	padding:15px 15px;	
+	
+}
+
 .ben-tabs-item
 {
-	padding:15px 15px;	
+	display:none;
 }
 #movieinfo-image
 {
