@@ -47,7 +47,7 @@ body {
 ------------------------------------------------------------------- */
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
-	color: #444;
+	
 	font-weight: normal;
 }
 h4,h5,h6 {font-weight: bold;}
@@ -239,7 +239,7 @@ ul.ben-tab-list li {float: left;}
 
 
 /* Tables */
-table {margin-bottom: 0.5em; width: 100%;}
+table { width: 100%;}
 th {font-weight: bold;}
 thead th {text-align:center}
 th,td,caption {/*padding: 4px 10px 4px 5px;*/}
@@ -800,7 +800,7 @@ ul#menu li ul li div:hover {
 }
 .tooltip-title span
 {
-	color:#FF0;	
+	color:#FF0;
 }
 .tooltip-summary
 {
@@ -831,8 +831,13 @@ ul#menu li ul li div:hover {
 {
 	color:#000;
 	font-weight:bold;
-	
+	padding:10px 0;
 }
+#ben-info
+{
+	margin-top:20px;
+}
+
 #ben-info-left
 {
 	width:765px;
@@ -840,4 +845,27 @@ ul#menu li ul li div:hover {
 #ben-info-right
 {
 	width:262px;
+}
+#ben-info-movie
+{
+	width:765px;
+	height:541px;	
+}
+.ben-tabs
+{
+	background:#404041;	
+}
+.ben-tabs td
+{
+	text-align:center;
+	padding:6px 0;
+	border-right:thin solid #393839;
+}
+.ben-tabs td:hover
+{
+	background:#58595b;
+}
+.ben-tabs td:last-child
+{
+	border-right:none;
 }
