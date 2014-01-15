@@ -143,8 +143,12 @@ function time() {
                             });
 							function showTabItem(str)
 							{
-								$(".ben-tabs-show").html($('#'+str).html())
-									
+								$(".ben-tabs-show").fadeOut('slow',function(){
+									$(".ben-tabs-show").html($('#'+str).html());
+									$(".ben-tabs-show").fadeIn('slow');
+								})
+								
+								
 								
 							}
 							showTabItem('movieinfo');
