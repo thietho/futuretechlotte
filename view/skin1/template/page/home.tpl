@@ -1,7 +1,8 @@
 			<div class="ben-section">
             	<div id="ben-maincontent">
                 	<div id="ben-main-banner">
-                		<img src="view/skin1/image/bannermain.png" />
+                    	<img src="<?php echo $curentfilm['bannerthumbnail']?>" width="1045px" height="540px"/>
+                		
                     </div>
                     <div id="ben-info">
                     	<div id="ben-info-left" class="ben-left">
@@ -26,38 +27,22 @@
                                 	
                                 </div>
                                 <div id="timeshowing" class="ben-tabs-item">
-                                    Time Show
+                                    <?php echo html_entity_decode($curentfilm['timeshow'])?>
                                 </div>
                                 <div id="cinemaloction" class="ben-tabs-item">
-                                    Cinema location
+                                    <?php echo html_entity_decode($curentfilm['cinemalocation'])?>
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
-                                        <img src="view/skin1/image/movieimage.png" />
+                                        <img src="<?php echo $curentfilm['imagethumbnail']?>" width="214px" height="403px"/>
                                     </div>
                                     <div id="moviecontent" class="ben-right">
-                                        Sau khi vị chủ tướng của mình bị giết oan, 47 ronin (hay còn được gọi là lãng nhân) đã cùng nhau lên kế hoạch trả thù cho sư phụ của mình đồng thời lấy lại danh dự cho thế giới samurai. Từ quê hương, họ lên đường vượt qua nghìn trùng để tìm kiếm sự giúp đỡ của Kai (Reeves), người đã từng bị họ từ chối gia nhập nhóm Ronin.
-Những lãng nhân này phải đối mặt với những thế lực đầy mờ ám nơi những kẻ khủng bố cùng những truyền nhân mang trong mình ma thuật cao cường luôn vây quanh nhằm hãm hại và tiêu diệt họ.
-                                        <center>
-                                        	
-                                            <video width="100%"  controls>
-                                              <source src="view/skin1/video/47 Ronin - Official Trailer (HD) Keanu Reeves.MP4" type="video/mp4">
-                                              
-                                            Your browser does not support the video tag.
-                                            </video>
-                                        </center>
-                                        Sau khi vị chủ tướng của mình bị giết oan, 47 ronin (hay còn được gọi là lãng nhân) đã cùng nhau lên kế hoạch trả thù cho sư phụ của mình đồng thời lấy lại danh dự cho thế giới samurai. Từ quê hương, họ lên đường vượt qua nghìn trùng để tìm kiếm sự giúp đỡ của Kai (Reeves), người đã từng bị họ từ chối gia nhập nhóm Ronin.
-Những lãng nhân này phải đối mặt với những thế lực đầy mờ ám nơi những kẻ khủng bố cùng những truyền nhân mang trong mình ma thuật cao cường luôn vây quanh nhằm hãm hại và tiêu diệt họ.
-Sau khi vị chủ tướng của mình bị giết oan, 47 ronin (hay còn được gọi là lãng nhân) đã cùng nhau lên kế hoạch trả thù cho sư phụ của mình đồng thời lấy lại danh dự cho thế giới samurai. Từ quê hương, họ lên đường vượt qua nghìn trùng để tìm kiếm sự giúp đỡ của Kai (Reeves), người đã từng bị họ từ chối gia nhập nhóm Ronin.
-Những lãng nhân này phải đối mặt với những thế lực đầy mờ ám nơi những kẻ khủng bố cùng những truyền nhân mang trong mình ma thuật cao cường luôn vây quanh nhằm hãm hại và tiêu diệt họ.
-Sau khi vị chủ tướng của mình bị giết oan, 47 ronin (hay còn được gọi là lãng nhân) đã cùng nhau lên kế hoạch trả thù cho sư phụ của mình đồng thời lấy lại danh dự cho thế giới samurai. Từ quê hương, họ lên đường vượt qua nghìn trùng để tìm kiếm sự giúp đỡ của Kai (Reeves), người đã từng bị họ từ chối gia nhập nhóm Ronin.
-Những lãng nhân này phải đối mặt với những thế lực đầy mờ ám nơi những kẻ khủng bố cùng những truyền nhân mang trong mình ma thuật cao cường luôn vây quanh nhằm hãm hại và tiêu diệt họ.
-                                        
+                                        <?php echo html_entity_decode($curentfilm['movieinfo'])?>
                                     </div>
                                     <div class="clearer">&nbsp;</div>
                                 </div>
                                 <div id="ticketprice" class="ben-tabs-item">
-                                    Ticet price
+                                    <?php echo html_entity_decode($curentfilm['ticketprice'])?>
                                 </div>
                             </div>
                             <script language="javascript">
@@ -88,18 +73,11 @@ Những lãng nhân này phải đối mặt với những thế lực đầy m�
                             </div>
                         </div>
                         <div id="ben-info-right" class="ben-right">
+                        	<?php foreach($listfilm as $key => $film){ ?>
                         	<div class="film-item ben-item">
-                            	<img src="view/skin1/image/film1.png" width="262" height="262" />
+                            	<a href="?pos=<?php echo $key?>"><img src="<?php echo $film['iconethumbnail']?>" width="262" height="262" /></a>
                             </div>
-                            <div class="film-item ben-item">
-                            	<img src="view/skin1/image/film2.png" width="262" height="262" />
-                            </div>
-                            <div class="film-item ben-item">
-                            	<img src="view/skin1/image/film3.png" width="262" height="262" />
-                            </div>
-                            <div class="film-item ben-item">
-                            	<img src="view/skin1/image/film4.png" width="262" height="262" />
-                            </div>
+                            <?php }?>
                         </div>
                     </div>
                 </div>

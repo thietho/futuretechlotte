@@ -404,7 +404,7 @@ function browserFile(eid,type)
 		});
 	
 		
-		$("#popup-content").load("?route=core/file&dialog=true&type=single",function(){
+		$("#popup-content").load("?route=core/file&dialog=true&type="+type,function(){
 			$("#popup").dialog("open");	
 		});
 		
@@ -437,9 +437,9 @@ function intSeleteFile(type)
 				
 				width = "";
 							
-				var value = "<img src='<?php echo HTTP_IMAGE?>"+$(this).attr('filepath')+"'/>";
+				var value = "<img src='"+ HTTP_IMAGE+$(this).attr('filepath')+"'/>";
 				
-				var oEditor = CKEDITOR.instances['editor1'] ;
+				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
 				
 				
 				// Check the active editing mode.
