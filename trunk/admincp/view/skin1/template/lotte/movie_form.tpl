@@ -4,7 +4,7 @@
     
     <div class="section-content padding1">
     
-    	<form name="frm" id="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
+    	<form  id="frm_movie" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         	
             
         	<div class="button right">
@@ -26,7 +26,7 @@
                 <div id="fragment-movieinfo">
                 	<p>
                         <label>Tên film</label><br />
-                        <input type="text" id="tennhacungcap" name="tennhacungcap" value="<?php echo $item['tennhacungcap']?>" class="text" size=60/>
+                        <input type="text" id="moviename" name="moviename" value="<?php echo $item['moviename']?>" class="text" size=60/>
                         
                     </p>
                     <p>
@@ -52,19 +52,19 @@
                     </p>
                     <p>
                     	<label>Movie info</label><br />
-                    	<textarea class="text" id="movieinfo" name="movieinfo"><?php echo $post['movieinfo']?></textarea>
+                    	<textarea class="text" id="movieinfo" name="movieinfo"><?php echo $item['movieinfo']?></textarea>
                     </p>
                     
 
                 </div>
                 <div id="fragment-timeshow">
-                	<textarea class="text" id="timeshow" name="timeshow"><?php echo $post['timeshow']?></textarea>
+                	<textarea class="text" id="timeshow" name="timeshow"><?php echo $item['timeshow']?></textarea>
                 </div>
                 <div id="fragment-cenimalocation">
-                	<textarea class="text" id="cinemalocation" name="cinemalocation"><?php echo $post['cinemalocation']?></textarea>
+                	<textarea class="text" id="cinemalocation" name="cinemalocation"><?php echo $item['cinemalocation']?></textarea>
                 </div>
                 <div id="fragment-ticketprice">
-                	<textarea class="text" id="ticketprice" name="ticketprice"><?php echo $post['ticketprice']?></textarea>
+                	<textarea class="text" id="ticketprice" name="ticketprice"><?php echo $item['ticketprice']?></textarea>
                 </div>
             </div>
             
@@ -77,19 +77,27 @@
 function save()
 {
 	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
-	var oEditor = CKEDITOR.instances['editor1'] ;
+	var oEditor = CKEDITOR.instances['movieinfo'] ;
 	var pageValue = oEditor.getData();
-	$('textarea#editor1').val(pageValue);
-	<?php if($hasSummary) {?>
-	var oEditor = CKEDITOR.instances['summary'] ;
+	$('textarea#movieinfo').val(pageValue);
+	
+	var oEditor = CKEDITOR.instances['timeshow'] ;
 	var pageValue = oEditor.getData();
-	$('textarea#summary').val(pageValue);
-	<?php } ?>
-	$.post("?route=core/postcontent/savepost",$('#frmPost').serialize(),
+	$('textarea#timeshow').val(pageValue);
+	
+	var oEditor = CKEDITOR.instances['cinemalocation'] ;
+	var pageValue = oEditor.getData();
+	$('textarea#cinemalocation').val(pageValue);
+	
+	var oEditor = CKEDITOR.instances['ticketprice'] ;
+	var pageValue = oEditor.getData();
+	$('textarea#ticketprice').val(pageValue);
+	
+	$.post("?route=lotte/movie/save",$('#frm_movie').serialize(),
 		function(data){
 			if(data=="true")
 			{
-				window.location = "<?php echo $DIR_CANCEL.'&page='.$_GET['page']?>";
+				window.location = "?route=lotte/movie";
 				
 			}
 			else

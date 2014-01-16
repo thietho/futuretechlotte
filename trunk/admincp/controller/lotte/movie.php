@@ -17,6 +17,7 @@ class ControllerLotteMovie extends Controller
 		
 		$this->load->helper('image');
 		$this->load->model("lotte/movie");
+		$this->load->model("core/file");
 		
 		
 		
@@ -115,11 +116,18 @@ class ControllerLotteMovie extends Controller
 			;
 			//
 			
-			$imagepreview = "";
 			
-			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['datas'][$i]['imagepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['icone']);
+			$this->data['datas'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['banner']);
+			$this->data['datas'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['image']);
+			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
 			$arr = array($this->data['datas'][$i]['id']);
-			$this->data['datas'][$i]['congno'] = $this->loadModule("lotte/movie","getCongNo",$arr);
+			
 		}
 		$this->data['refres']=$_SERVER['QUERY_STRING'];
 		$this->id='content';
@@ -141,9 +149,15 @@ class ControllerLotteMovie extends Controller
 		$sanphamid = $this->request->get['id'];
 		if($sanphamid) 
 		{
-			
       		$this->data['item'] = $this->model_lotte_movie->getItem($this->request->get['id']);
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['icone']);
+			$this->data['datas'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 			
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['banner']);
+			$this->data['datas'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
+			$file = $this->model_core_file->getFile($this->data['datas'][$i]['image']);
+			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);	
 			
     	}
 		
@@ -157,6 +171,9 @@ class ControllerLotteMovie extends Controller
 	public function save()
 	{
 		$data = $this->request->post;
+		$data['icone'] = $data['icone_fileid'];
+		$data['banner'] = $data['banner_fileid'];
+		$data['image'] = $data['image_fileid'];
 		
 		if($this->validateForm($data))
 		{
@@ -181,24 +198,11 @@ class ControllerLotteMovie extends Controller
 	
 	private function validateForm($data)
 	{
-    	if($data['tennhacungcap'] == "")
+    	if($data['moviename'] == "")
 		{
-      		$this->error['tennhacungcap'] = "Bạn chưa nhập tên nhà cung cấp";
+      		$this->error['moviename'] = "Bạn chưa nhập tên film";
     	}
-		if($data['email'])
-		{
-			if ($this->validation->_checkEmail($this->request->post['email']) == false ) 
-			{
-				$this->error['email'] = "Email khong đúng định dạng";
-			}
-		}
-		if($data['emailnguoilienhe'])
-		{
-			if ($this->validation->_checkEmail($this->request->post['emailnguoilienhe']) == false ) 
-			{
-				$this->error['emailnguoilienhe'] = "Email người liên không đúng định dạng";
-			}
-		}
+		
 
 		if (count($this->error)==0) {
 	  		return TRUE;

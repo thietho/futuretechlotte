@@ -33,14 +33,15 @@
                         <?php } ?>
                         <td><?php echo $key+1 ?></td>
                         <td><?php echo $item['moviename']?></td>
-                        <td><?php echo $item['icone']?></td>
-        				<td><?php echo $item['banner']?></td>
-                        <td><?php echo $item['image']?></td>
+                        <td><img src="<?php echo $item['iconethumbnail']?>"></td>
+                        <td><img src="<?php echo $item['bannerthumbnail']?>"></td>
+                        <td><img src="<?php echo $item['imagethumbnail']?>"></td>
+        				
                        	
                         <?php if($dialog!=true){ ?>
                         <td class="link-control">
                             <?php if($this->user->checkPermission("quanlykho/sanpham/update")==true){ ?>
-                            <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="showNhaCungCapForm(<?php echo $item['id']?>,'searchForm()')"/>
+                            <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="window.location='<?php echo $item['link_edit']?>'"/>
                             <?php } ?>
                            
                             
