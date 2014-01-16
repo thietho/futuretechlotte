@@ -45,15 +45,16 @@
                 </p>
             </div>
             <div>
+            	<?php for($i=1;$i<=5;$i++){?>
             	<p>
-                    <label>Film 1</label>
-                    <input type="hidden" id="film1" name="film1" value="<?php echo $item['film1']?>"/>
-                    <span id="film1_name"></span>
-                    <img id="film1_icon" src=""/>
-                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('film1')"/>
+                    <label>Film <?php echo $i?></label>
+                    <input type="hidden" id="film<?php echo $i?>" name="film<?php echo $i?>" value="<?php echo $film[$i]['id']?>"/>
+                    <span id="film<?php echo $i?>_name"><?php echo $film[$i]['moviename']?></span>
+                    <img id="film<?php echo $i?>_icon" src="<?php echo $film[$i]['iconethumbnail']?>"/>
+                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('film<?php echo $i?>')"/>
                         
                 </p>
-                
+                <?php }?>
             </div>
         </form>
     
@@ -73,7 +74,7 @@ function save()
 		function(data){
 			if(data == "true")
 			{
-				window.location.reload();
+				//window.location.reload();
 			}
 			$.unblockUI();
 		}
