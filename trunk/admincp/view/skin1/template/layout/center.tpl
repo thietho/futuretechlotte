@@ -57,7 +57,8 @@ var loading = '<center><img src="<?php echo DIR_IMAGE?>loading.gif"></center>';
 </div>
 
 <div id="footer"><?php echo $footer?></div>
-
+	<input type="hidden" id="handler" />
+	<input type="hidden" id="outputtype" />
 </div>
 
 </body>
