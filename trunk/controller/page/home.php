@@ -13,68 +13,40 @@ class ControllerPageHome extends Controller
 	{
 		if($this->cachehtml->iscacht($this->name) == false)
 		{
-			/*$arr = array('menu-chinh');
-			$this->data['mainmenu'] = $this->loadModule('common/header','showMenu',$arr);
-			//Banner home
-			$template = array(
-						  'template' => "home/bannerhome.tpl",
-						  'width' => 894,
-						  'height' =>894
-						  );
-		
-			$arr = array("bannerhome",0,"",$template);
-			$this->data['bannerhome'] = $this->loadModule('module/block','getList',$arr);
-			//Tin nóng
-			$template = array(
-						  'template' => "home/news_list.tpl",
-						  'width' => 514,
-						  'height' =>514,
-						  
-						  );
-			
-			$medias = $this->getHomeMedias('module/news');
-			
-			$arr = array("",13,"",$template,$medias);
-			$this->data['newshome'] = $this->loadModule('module/productlist','index',$arr);
-			
-			//San pham moi
-			$template = array(
-						  'template' => "module/product_list.tpl",
-						  'width' => 170,
-						  'height' =>170,
-						  'widthpreview' => 450,
-						  'heightpreview' =>450,
-						  'paging' => false,
-						  'sorting' =>false
-						  );
-			
-			$medias = $this->getHomeMedias('module/product');
-			
-			$arr = array("",20,"",$template,$medias);
-			$this->data['producthome'] = $this->loadModule('module/productlist','index',$arr);
-			
-			//San pham noi bat
-			$template = array(
-						  'template' => "home/product.tpl",
-						  'width' => 170,
-						  'height' =>170,
-						  'widthpreview' => 450,
-						  'heightpreview' =>450,
-						  'paging' => false,
-						  'sorting' =>false
-						  );
-			
-			$medias = $this->getProduct('sanphamhot');
-			//print_r($medias);
-			$arr = array("",100000,"",$template,$medias);
-			$this->data['producthot'] = $this->loadModule('module/productlist','index',$arr);
-			/*$arr = array("gioithieu");
-			$this->data['producthome'] = $this->loadModule('module/information','index',$arr);*/
-			//
-			
-			//$this->loadSiteBar();
+			$this->load->model('lotte/movie');
+			$this->load->model('core/file');
+			$this->load->helper('image');
 			$this->document->title = $this->document->setup['Title'] ." - ". $this->document->setup['Slogan'];
-			//print_r($this->data['leftsitebar']);
+			//print_r($this->document->setup);
+			for($i=1;$i<=5;$i++)
+			{
+				$filmid=$this->document->setup['film'.$i];
+				$film = $this->model_lotte_movie->getItem($filmid);
+				
+				$file = $this->model_core_file->getFile($film['icone']);
+				$film['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 262, 262);
+				
+				$file = $this->model_core_file->getFile($film['banner']);
+				$film['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 1045, 540);
+				
+				$file = $this->model_core_file->getFile($film['image']);
+				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
+				
+				$data_film[$i]=$film;
+			}
+			//print_r($this->data['film']);
+			$cur = $this->request->get['pos'];
+			if(!$cur)
+				$cur = 1;
+			$this->data['curentfilm'] = $data_film[$cur];
+			for($i=1;$i<=5;$i++)
+			{
+				if($i!=$cur)
+				{
+					$this->data['listfilm'][$i] = $data_film[$i];
+				}
+			}
+			
 		}
 		
 		$this->id="content";

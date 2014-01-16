@@ -52,18 +52,22 @@
                     </p>
                     <p>
                     	<label>Movie info</label><br />
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('movieinfo','editor')"/>
                     	<textarea class="text" id="movieinfo" name="movieinfo"><?php echo $item['movieinfo']?></textarea>
                     </p>
                     
 
                 </div>
                 <div id="fragment-timeshow">
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('timeshow','editor')"/><br />
                 	<textarea class="text" id="timeshow" name="timeshow"><?php echo $item['timeshow']?></textarea>
                 </div>
                 <div id="fragment-cenimalocation">
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('cinemalocation','editor')"/><br />
                 	<textarea class="text" id="cinemalocation" name="cinemalocation"><?php echo $item['cinemalocation']?></textarea>
                 </div>
                 <div id="fragment-ticketprice">
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('ticketprice','editor')"/><br />
                 	<textarea class="text" id="ticketprice" name="ticketprice"><?php echo $item['ticketprice']?></textarea>
                 </div>
             </div>
