@@ -360,6 +360,34 @@ function logout()
 	);	
 }
 
+function selectFilm(eid)
+{
+    $('#handler').val(eid);
+	
+	$('body').append('<div id="filmform" style="display:none"></div>');
+	var eid = "#filmform";
+	$(eid).attr('title','Chọn film');
+		$( eid ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: $(document).width()-100,
+			height: 600,
+			modal: true,
+			close:function()
+				{
+					$(eid).remove();
+				},
+			
+		});
+	
+		
+		$(eid).load("?route=lotte/movie&opendialog=true",function(){
+			$(eid).dialog("open");	
+		});
+		
+}
+
 function browserFile(eid,type)
 {
     $('#handler').val(eid);

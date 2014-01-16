@@ -4,21 +4,11 @@
     
     <div class="section-content">
     	
-        <form action="" method="post" id="frm_nhacungcap">
+        <form action="" method="post" id="frm_movie">
         	<div id="ben-search">
-            	<label>Tên nhà cung cấp</label>
-                <input type="text" id="tennhacungcap" name="tennhacungcap" class="text" value="" />
-                <label>Số điện thoại</label>
-                <input type="text" id="sodienthoai" name="sodienthoai" class="text" value="" />
-                <label>Địa chỉ</label>
-                <input type="text" id="diachi" name="diachi" class="text" value="" />
-                <label>Email</label>
-                <input type="text" id="email" name="email" class="text" value="" />
-                <br />
-                <label>Nguoi liên hệ</label>
-                <input type="text" id="nguoilienhe" name="nguoilienhe" class="text" value="" />
-                <label>Số điện thoại liên hệ</label>
-                <input type="text" id="sodienthoainguoilienhe" name="sodienthoainguoilienhe" class="text" value="" />
+            	<label>Tên film</label>
+                <input type="text" id="moviename" name="moviename" class="text" value="" />
+                
                 
                 <br />
                 <input type="button" class="button" name="btnSearch" value="Tìm" onclick="searchForm()"/>
@@ -42,7 +32,7 @@
             </div>
             <div class="clearer">^&nbsp;</div>
             
-            <div id="listsanpham" class="sitemap treeindex">
+            <div id="listmovie" class="sitemap treeindex">
                 
             </div>
         	
@@ -89,35 +79,25 @@ function viewAll()
 	{
 		url += "&opendialog=true";
 	}
-	$('#listsanpham').html(loading);
-	$('#listsanpham').load(url);
+	$('#listmovie').html(loading);
+	$('#listmovie').load(url);
 }
 
 function searchForm()
 {
 	var url =  "";
-	if($("#frm_nhacungcap #tennhacungcap").val() != "")
-		url += "&tennhacungcap=" + encodeURI($("#frm_nhacungcap #tennhacungcap").val());
+	if($("#frm_movie #moviename").val() != "")
+		url += "&moviename=" + encodeURI($("#frm_movie #moviename").val());
 	
-	if($("#frm_nhacungcap #sodienthoai").val() != "")
-		url += "&sodienthoai="+ encodeURI($("#frm_nhacungcap #sodienthoai").val());
 	
-	if($("#frm_nhacungcap #diachi").val() != "")
-		url += "&diachi="+ encodeURI($("#frm_nhacungcap #diachi").val());
-	if($("#frm_nhacungcap #email").val() != "")
-		url += "&email="+ encodeURI($("#frm_nhacungcap #email").val());
-	if($("#frm_nhacungcap #nguoilienhe").val() != "")
-		url += "&nguoilienhe="+ encodeURI($("#frm_nhacungcap #nguoilienhe").val());
-	if($("#frm_nhacungcap #sodienthoainguoilienhe").val() != "")
-		url += "&sodienthoainguoilienhe="+ encodeURI($("#frm_nhacungcap #sodienthoainguoilienhe").val());
 
 	
 	if("<?php echo $_GET['opendialog']?>" == "true")
 	{
 		url += "&opendialog=true";
 	}
-	$('#listsanpham').html(loading);
-	$('#listsanpham').load("?route=lotte/movie/getList"+url);
+	$('#listmovie').html(loading);
+	$('#listmovie').load("?route=lotte/movie/getList"+url);
 }
 
 function moveto(url,eid)

@@ -45,29 +45,15 @@
                 </p>
             </div>
             <div>
-            	<!--<h3>Trang chủ</h3>-->
-                 <input type="hidden" id="listselectfile" name="listselectfile" />
-                 
-                
-                
-                 <p>
-                    <label><?php echo $lbl_image ?></label><br />
-                    <div id="brochure">
-                        <?php echo $item['brochure']?>
-                    </div>
-                    <input type="hidden" id="brochure_filepath" name="brochure" value="<?php echo $item['brochure']?>"/>
-                    <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('brochure','any')"/>
-                    <input type="button" class="button" value="Remove" onclick="$('#brochure_filepath').val('');$('#brochure').html('')"/>
+            	<p>
+                    <label>Film 1</label>
+                    <input type="hidden" id="film1" name="film1" value="<?php echo $item['film1']?>"/>
+                    <span id="film1_name"></span>
+                    <img id="film1_icon" src=""/>
+                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('film1')"/>
+                        
                 </p>
-                <p>
-                    <label>Background</label><br />
-                    <div id="background">
-                        <?php echo $item['background']?>
-                    </div>
-                    <input type="hidden" id="background_filepath" name="background" value="<?php echo $item['background']?>"/>
-                    <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('background','any')"/>
-                    <input type="button" class="button" value="Remove" onclick="$('#background_filepath').val('');$('#background').html('')"/>
-                </p>
+                
             </div>
         </form>
     
@@ -93,5 +79,15 @@ function save()
 		}
 	);
 }
-
+function intSelectMovie()
+{
+	$('.item').click(function(e) {
+        var eid = $('#handler').val();
+		$('#'+eid).val($(this).attr('id'));
+		$('#'+eid+'_name').html($(this).attr('moviename'));
+		$('#'+eid+'_icon').attr('src',$(this).attr('icone'));
+		
+		$("#filmform").dialog( "close" );
+    });
+}
 </script>
