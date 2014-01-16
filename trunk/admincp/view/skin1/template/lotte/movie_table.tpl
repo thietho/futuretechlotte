@@ -27,7 +27,7 @@
             foreach($datas as $key => $item)
             {
         ?>
-                    <tr class="item" id="<?php echo $item['id']?>" moviename="<?php echo $item['moviename']?>" icone="<?php echo $item['icone']?>" banner="<?php echo $item['banner']?>" image="<?php echo $item['image']?>">
+                    <tr class="item" id="<?php echo $item['id']?>" moviename="<?php echo $item['moviename']?>" icone="<?php echo $item['iconethumbnail']?>" banner="<?php echo $item['bannerthumbnail']?>" image="<?php echo $item['imagethumbnail']?>">
                     	<?php if($dialog!=true){ ?>
                         <td class="check-column"><input class="inputchk" type="checkbox" name="delete[<?php echo $item['id']?>]" value="<?php echo $item['id']?>" ></td>
                         <?php } ?>

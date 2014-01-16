@@ -30,6 +30,8 @@ class ControllerCommonDashboard extends Controller
 		
 		$this->data['item']['brochure'] = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'brochure');
 		$this->data['item']['background'] = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'background');
+		
+		$this->data['item']['film1'] = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'film1');
 	}
 	
 	public function save()
@@ -47,6 +49,7 @@ class ControllerCommonDashboard extends Controller
 		
 		$this->model_core_media->saveInformation($data['mediaid'],"brochure",$data['brochure']);
 		$this->model_core_media->saveInformation($data['mediaid'],"background",$data['background']);
+		$this->model_core_media->saveInformation($data['mediaid'],"film1",$data['film1']);
 		$this->data['output'] = "true";
 		
 		$this->id='content';

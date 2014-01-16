@@ -75,12 +75,8 @@ class ControllerLotteMovie extends Controller
 		$this->data['datas'] = array();
 		$where = "";
 		
-		$datasearchlike['tennhacungcap'] = urldecode($this->request->get['tennhacungcap']);
-		$datasearchlike['sodienthoai'] = urldecode($this->request->get['sodienthoai']);
-		$datasearchlike['diachi'] = urldecode($this->request->get['diachi']);
-		$datasearchlike['email'] = urldecode($this->request->get['email']);
-		$datasearchlike['nguoilienhe'] = urldecode($this->request->get['nguoilienhe']);
-		$datasearchlike['sodienthoainguoilienhe'] = urldecode($this->request->get['sodienthoainguoilienhe']);
+		$datasearchlike['moviename'] = urldecode($this->request->get['moviename']);
+		
 		
 		$arr = array();
 		foreach($datasearchlike as $key => $item)
@@ -93,7 +89,7 @@ class ControllerLotteMovie extends Controller
 		
 		$where = implode("",$arr);
 		
-		
+		$where .= " Order by id desc";
 		$rows = $this->model_lotte_movie->getList($where);
 		//Page
 		$page = $this->request->get['page'];		
@@ -101,7 +97,7 @@ class ControllerLotteMovie extends Controller
 		$limit = 20;
 		$total = count($rows); 
 		// work out the pager values 
-		$this->data['pager']  = $this->pager->pageLayoutAjax($total, $limit, $page,"#listnguyenlieu");
+		$this->data['pager']  = $this->pager->pageLayoutAjax($total, $limit, $page,"#listmovie");
 		
 		$pager  = $this->pager->getPagerData($total, $limit, $page); 
 		$offset = $pager->offset; 
@@ -150,14 +146,14 @@ class ControllerLotteMovie extends Controller
 		if($sanphamid) 
 		{
       		$this->data['item'] = $this->model_lotte_movie->getItem($this->request->get['id']);
-			$file = $this->model_core_file->getFile($this->data['datas'][$i]['icone']);
-			$this->data['datas'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['item']['icone']);
+			$this->data['item']['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 			
-			$file = $this->model_core_file->getFile($this->data['datas'][$i]['banner']);
-			$this->data['datas'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['item']['banner']);
+			$this->data['item']['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 			
-			$file = $this->model_core_file->getFile($this->data['datas'][$i]['image']);
-			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);	
+			$file = $this->model_core_file->getFile($this->data['item']['image']);
+			$this->data['item']['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);	
 			
     	}
 		
