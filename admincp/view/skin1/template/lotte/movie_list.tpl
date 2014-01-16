@@ -26,15 +26,14 @@
             </div>
         	<div class="button right">
             	<?php if($dialog==true){ ?>
-            	<?php if($this->user->checkPermission("lotte/movie/insert")==true){ ?>
-                <input class="button" value="Thêm" type="button" onclick="showNhaCungCapForm('','searchForm()')">
-                <?php } ?>
+            	
+                
                 
                 <?php }else{ ?>
                 
                
                 <?php if($this->user->checkPermission("lotte/movie/insert")==true){ ?>
-                <input class="button" value="Thêm" type="button" onclick="showNhaCungCapForm('','searchForm()')">
+                <input class="button" value="Thêm" type="button" onclick="window.location='<?php echo $insert?>'">
                 <?php } ?>
                 <?php if($this->user->checkPermission("lotte/movie/delete")==true){ ?>
             	<input class="button" type="button" name="delete_all" value="Xóa" onclick="deleteitem()"/>

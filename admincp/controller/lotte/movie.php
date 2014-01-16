@@ -6,7 +6,7 @@ class ControllerLotteMovie extends Controller
 	{
 		
 		$this->load->model("core/module");
-		$moduleid = $_GET['route'];
+		$moduleid = $this->getRoute();
 		$this->document->title = $this->model_core_module->getBreadcrumbs($moduleid);
 		if($this->user->checkPermission($moduleid)==false)
 		{
@@ -134,70 +134,10 @@ class ControllerLotteMovie extends Controller
 		$this->render();
 	}
 	
-	public function getCongNo($id='')
-	{
-		if($id=="")
-			$id=$this->request->get['nhacungcapid'];
-		
-		$this->data['nhacungcap'] = $this->model_lotte_movie->getItem($id);
-		//Lay tat ca phieu chi thanhtoanncc
-		$where = " AND makhachhang = 'NCC-".$id."' AND loaithuchi = 'chi' AND taikhoanthuchi = 'thanhtoanncc'";
-		$this->data['data_phieuchi'] = $this->model_addon_thuchi->getList($where);
-		$tongchi = 0;
-		foreach($this->data['data_phieuchi'] as $item)
-		{
-			$tongchi += $item['quidoi'];	
-		}
-		
-		//Lay tat ca phieu nhap hang
-		$where = " AND loaiphieu = 'NK' AND nhacungcapid = '".$id."'";
-		$this->data['data_phieunhapkho'] = $this->model_quanlykho_phieunhapxuat->getList($where);
-		$tongno = 0;
-		foreach($this->data['data_phieunhapkho'] as $item)
-		{
-			$tongno += $item['congno'];	
-		}
-		
-		//Lay tat ca phieu xuat hang
-		$where = " AND loaiphieu = 'PBH' AND nhacungcapid = '".$id."'";
-		$this->data['data_phieubanhang'] = $this->model_quanlykho_phieunhapxuat->getList($where);
-		$tongban = 0;
-		foreach($this->data['data_phieubanhang'] as $item)
-		{
-			$tongban += $item['congno'];	
-		}
-		$congno = $tongno - $tongchi - $tongban;
-		
-		if($this->request->get['nhacungcapid'])
-		{
-			
-			$this->data['tongno'] = $tongno;
-			$this->data['tongchi'] = $tongchi;
-			$this->data['tongban'] = $tongban;
-			
-			
-			$this->data['congno'] = $congno;
-			$this->id='content';
-			$this->template="lotte/movie_congno.tpl";
-			if($_GET['dialog']=='print')
-			{
-				$this->layout='layout/print';
-			}
-			$this->render();
-		}
-		else
-		{
-			$this->data['output'] = $congno;
-			$this->id='content';
-			$this->template='common/output.tpl';
-			$this->render();
-			
-		}
-	}
 	
 	private function getForm()
 	{
-		$this->data['DIR_UPLOADPHOTO'] = HTTP_SERVER."index.php?route=common/uploadpreview";
+		
 		$sanphamid = $this->request->get['id'];
 		if($sanphamid) 
 		{
@@ -209,7 +149,7 @@ class ControllerLotteMovie extends Controller
 		
 		$this->id='content';
 		$this->template='lotte/movie_form.tpl';
-		
+		$this->layout="layout/center";
 		
 		$this->render();
 	}
