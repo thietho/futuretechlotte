@@ -55,6 +55,16 @@
                         
                 </p>
                 <?php }?>
+                
+                <?php for($i=1;$i<=2;$i++){?>
+            	<p>
+                    <label>Quảng cáo <?php echo $i?></label>
+                    <input type="hidden" id="qc<?php echo $i?>_fileid" name="qc<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/><br />
+                        <img id="qc<?php echo $i?>_preview" src="<?php echo $qc[$i]['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qc<?php echo $i?>','single')"/>
+                        
+                </p>
+                <?php }?>
             </div>
         </form>
     

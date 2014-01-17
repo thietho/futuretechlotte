@@ -65,11 +65,12 @@
 							showTabItem('movieinfo');
 							
 							</script>
+                            
                             <div class="ben-info-banner ben-item">
-                            	<img src="view/skin1/image/banner1.png" width="765" height="263" />
+                            	<img src="<?php echo HTTP_IMAGE.$qc[1]['filepath']?>" width="765" height="263" />
                             </div>
                             <div class="ben-info-banner ben-item">
-                            	<img src="view/skin1/image/banner2.png" width="765" height="263" />
+                            	<img src="<?php echo HTTP_IMAGE.$qc[2]['filepath']?>" width="765" height="263" />
                             </div>
                         </div>
                         <div id="ben-info-right" class="ben-right">
