@@ -34,7 +34,7 @@
                         
                         <input type="hidden" id="icone_fileid" name="icone_fileid" value="<?php echo $item['icone']?>"/><br />
                         <img id="icone_preview" src="<?php echo $item['iconethumbnail']?>"/>
-                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('icone','any')"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('icone','single')"/>
                         
                         
                     </p>
@@ -42,13 +42,13 @@
                         <label>Banner(1045x540)</label>
                         <input type="hidden" id="banner_fileid" name="banner_fileid" value="<?php echo $item['banner']?>"/><br />
                         <img id="banner_preview" src="<?php echo $item['bannerthumbnail']?>"/>
-                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('banner','any')"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('banner','single')"/>
                     </p>
                     <p>
                         <label>Image(214x403)</label>
                         <input type="hidden" id="image_fileid" name="image_fileid" value="<?php echo $item['image']?>"/><br />
                         <img id="image_preview" src="<?php echo $item['imagethumbnail']?>"/>
-                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('image','any')"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('image','single')"/>
                     </p>
                     <p>
                     	<label>Movie info</label><br />

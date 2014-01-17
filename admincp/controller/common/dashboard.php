@@ -47,7 +47,16 @@ class ControllerCommonDashboard extends Controller
 			$file = $this->model_core_file->getFile($this->data['film'][$i]['image']);
 			$this->data['film'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 		}
-		//print_r($this->data['film']);
+		
+		
+		
+		for($i=1;$i<=2;$i++)
+		{	
+			$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'qc'.$i);	
+			$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
+			$this->data['qc'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['qc'][$i]['filepath'], 100, 0);
+			
+		}
 	}
 	
 	public function save()
@@ -65,10 +74,16 @@ class ControllerCommonDashboard extends Controller
 		
 		$this->model_core_media->saveInformation($data['mediaid'],"brochure",$data['brochure']);
 		$this->model_core_media->saveInformation($data['mediaid'],"background",$data['background']);
+		
 		for($i=1;$i<=5;$i++)
 		{
 			$this->model_core_media->saveInformation($data['mediaid'],"film".$i,$data['film'.$i]);
 		}
+		for($i=1;$i<=2;$i++)
+		{
+			$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
+		}
+		
 		$this->data['output'] = "true";
 		
 		$this->id='content';
