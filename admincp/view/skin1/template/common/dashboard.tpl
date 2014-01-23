@@ -100,10 +100,10 @@ function intSelectMovie()
 			$('.item').click(function(e) {
 			var eid = $('#handler').val();
 			var str ='<tr id="row'+index+'">';
-			str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+$(this).attr('id')+'"/></td>';
-			str += '<td><span id="film'+index+'_name">'+$(this).attr('moviename')+'</span></td>';
+			
+			str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+$(this).attr('id')+'"/><span id="film'+index+'_name">'+$(this).attr('moviename')+'</span></td>';
 			str += '<td><img id="film'+index+'_icon" src="'+$(this).attr('icone')+'"/></td>';
-			str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'row'+index+'\').remove()"/></td>';
+			str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
 			str += '</tr>';
 			$('#listfilm').append(str);
 			index++;

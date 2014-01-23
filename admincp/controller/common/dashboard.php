@@ -75,9 +75,11 @@ class ControllerCommonDashboard extends Controller
 		$this->model_core_media->saveInformation($data['mediaid'],"brochure",$data['brochure']);
 		$this->model_core_media->saveInformation($data['mediaid'],"background",$data['background']);
 		
-		for($i=1;$i<=5;$i++)
+		
+		if(count($data['film']))
 		{
-			$this->model_core_media->saveInformation($data['mediaid'],"film".$i,$data['film'.$i]);
+			$listfilm = implode(',',$data['film']);
+			$this->model_core_media->saveInformation($data['mediaid'],"listfilm",$listfilm);
 		}
 		for($i=1;$i<=4;$i++)
 		{
