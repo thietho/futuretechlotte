@@ -40,6 +40,8 @@ class ControllerPageHome extends Controller
 			{	
 				$fileid = $this->document->setup['qc'.$i];	
 				$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
+				$fileid = $this->document->setup['qcbanner'.$i];
+				$this->data['qcbanner'][$i] = $this->model_core_file->getFile($fileid);
 				//$this->data['qc'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['qc'][$i]['filepath'], 100, 0);
 				
 			}

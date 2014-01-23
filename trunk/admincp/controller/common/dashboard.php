@@ -34,7 +34,7 @@ class ControllerCommonDashboard extends Controller
 		$this->data['item']['background'] = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'background');
 		$listfilm = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'listfilm');
 		$arr_filmid = split(',',$listfilm);
-		foreach($arr_filmid as $filmid)
+		foreach($arr_filmid as $i => $filmid)
 		{
 			//$filmid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'film'.$i);
 			$this->data['data_film'][$i] = $this->model_lotte_movie->getItem($filmid);
@@ -56,6 +56,9 @@ class ControllerCommonDashboard extends Controller
 			$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'qc'.$i);	
 			$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
 			$this->data['qc'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['qc'][$i]['filepath'], 100, 0);
+			$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'qcbanner'.$i);	
+			$this->data['qcbanner'][$i] = $this->model_core_file->getFile($fileid);
+			$this->data['qcbanner'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['qcbanner'][$i]['filepath'], 100, 0);
 			
 		}
 	}
@@ -85,6 +88,7 @@ class ControllerCommonDashboard extends Controller
 		for($i=1;$i<=4;$i++)
 		{
 			$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
+			$this->model_core_media->saveInformation($data['mediaid'],"qcbanner".$i,$data['qcbanner'.$i.'_fileid']);
 		}
 		
 		$this->data['output'] = "true";
