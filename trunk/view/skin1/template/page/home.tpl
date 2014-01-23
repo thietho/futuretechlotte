@@ -17,7 +17,7 @@
                                 <tr>
                                     <?php foreach($listfilm as $key => $film){ ?>
                                     <td>
-                                        <a onclick="showFilm(<?php echo $film['id']?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                        <a onclick="clearTimeout(t);runShowFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                     </td>
                                     <?php } ?>
                                     
@@ -116,26 +116,33 @@ function runbanner()
 								
 							}
 							showTabItem('movieinfo');
-							function showFilm(filmid)
+							function showFilm(pos)
 							{
-								$('#ben-main-banner').attr('src',$('#film'+filmid+' #banner').html());
-								$('#timeshowing').html($('#film'+filmid+' #film_timeshowing').html());
-								$('#cinemaloction').html($('#film'+filmid+' #film_cinemaloction').html());
-								$('#movieinfo').html($('#film'+filmid+' #film_movieinfo').html());
-								$('#ticketprice').html($('#film'+filmid+' #film_ticketprice').html());
+								$('#ben-main-banner').attr('src',$('#film'+pos+' #banner').html());
+								$('#timeshowing').html($('#film'+pos+' #film_timeshowing').html());
+								$('#cinemaloction').html($('#film'+pos+' #film_cinemaloction').html());
+								$('#movieinfo').html($('#film'+pos+' #film_movieinfo').html());
+								$('#ticketprice').html($('#film'+pos+' #film_ticketprice').html());
 								showTabItem('movieinfo');
 							}
 							
-							var countfilm = "<?php echo count($listfilm)?>";
+							var countfilm = Number("<?php echo count($listfilm)?>");
+							
+							var t;
 							function runShowFilm(pos)
 							{
-								
+								if(pos >= countfilm)
+									pos = 0;
+								//alert(pos);
+								showFilm(pos);
+								t = setTimeout('runShowFilm('+ Number(pos+1) +')',5000);
 							}
+							runShowFilm(0)
 							</script>
                             
                             <div style="display:none">
                             	<?php foreach($listfilm as $key => $film){ ?>
-                            	<div id="film<?php echo $film['id']?>">
+                            	<div id="film<?php echo $key?>">
                                 	<div id="banner"><?php echo $film['bannerthumbnail']?></div>
                                     <div id="film_timeshowing">
                                     	<?php echo html_entity_decode($film['timeshow'])?>
