@@ -119,11 +119,16 @@ function runbanner()
 							</script>
                             
                             <div class="ben-info-banner ben-item">
-                            	<img src="<?php echo HTTP_IMAGE.$qc[1]['filepath']?>" width="765" height="263" />
+                            	<table>
+                                	<tr>
+                                    	<?php for($i=1;$i<=4;$i++){ ?>
+                                    	<td><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></td>
+                                        <?php }?>
+                                    </tr>
+                                </table>
+                            	
                             </div>
-                            <div class="ben-info-banner ben-item">
-                            	<img src="<?php echo HTTP_IMAGE.$qc[2]['filepath']?>" width="765" height="263" />
-                            </div>
+                           
                         </div>
                         
                     </div>
