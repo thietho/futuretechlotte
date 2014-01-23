@@ -360,10 +360,10 @@ function logout()
 	);	
 }
 
-function selectFilm(eid)
+function selectFilm(eid,type)
 {
     $('#handler').val(eid);
-	
+	$('#outputtype').val(type);
 	$('body').append('<div id="filmform" style="display:none"></div>');
 	var eid = "#filmform";
 	$(eid).attr('title','Chọn film');
