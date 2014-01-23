@@ -169,11 +169,17 @@ function runbanner()
                             	<table>
                                 	<tr>
                                     	<?php for($i=1;$i<=4;$i++){ ?>
-                                    	<td><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></td>
+                                    	<td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></a></td>
                                         <?php }?>
                                     </tr>
                                 </table>
-                            	
+                            	<div style="display:none">
+                                	<?php for($i=1;$i<=4;$i++){ ?>
+                                    <div id="qcbanner<?php echo $i?>">
+                                    	<?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>
+                                    </div>
+                                    <?php }?>
+                                </div>
                             </div>
                            
                         </div>

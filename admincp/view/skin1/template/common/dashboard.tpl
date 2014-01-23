@@ -59,11 +59,15 @@
                 </p>
                 <?php for($i=1;$i<=4;$i++){?>
             	<p>
-                    <label>Quảng cáo <?php echo $i?>(250px x 250px)</label>
+                    <label>Quảng cáo <?php echo $i?></label>
                     <input type="hidden" id="qc<?php echo $i?>_fileid" name="qc<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/><br />
+                    	(250px x 250px)
                         <img id="qc<?php echo $i?>_preview" src="<?php echo $qc[$i]['imagethumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qc<?php echo $i?>','single')"/>
-                        
+                        (1045px x 540px)
+                        <input type="hidden" id="qcbanner<?php echo $i?>_fileid" name="qcbanner<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/>
+                        <img id="qcbanner<?php echo $i?>_preview" src="<?php echo $qcbanner[$i]['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qcbanner<?php echo $i?>','single')"/>
                 </p>
                 <?php }?>
             </div>
@@ -103,17 +107,13 @@ function addRow(obj)
 	index++;
 }
 var obj = new Object();
-<?php
-	foreach($data_film as $f)
-	{
-?>
-		obj.id = "<?php echo $f['id']?>";
-		obj.moviename = "<?php echo $f['moviename']?>";
-		obj.icone = "<?php echo $f['iconethumbnail']?>";
-		addRow(obj);
-<?php	
-	}
-?>
+<?php foreach($data_film as $f) { ?>
+	
+	obj.id = "<?php echo $f['id']?>";
+	obj.moviename = "<?php echo $f['moviename']?>";
+	obj.icone = "<?php echo $f['iconethumbnail']?>";
+	addRow(obj);
+<?php } ?>
 function intSelectMovie()
 {
 	switch($('#outputtype').val())
