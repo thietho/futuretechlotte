@@ -45,17 +45,18 @@
                 </p>
             </div>
             <div>
-            	<?php for($i=1;$i<=5;$i++){?>
-            	<p>
-                    <label>Film <?php echo $i?></label>
-                    <input type="hidden" id="film<?php echo $i?>" name="film<?php echo $i?>" value="<?php echo $film[$i]['id']?>"/>
-                    <span id="film<?php echo $i?>_name"><?php echo $film[$i]['moviename']?></span>
-                    <img id="film<?php echo $i?>_icon" src="<?php echo $film[$i]['iconethumbnail']?>"/>
-                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('film<?php echo $i?>')"/>
-                        
+            	
+                <p>
+                	<label>Danh sach film</label><br />
+                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('listfilm','add')"/><br />
+                    <table>
+                    	<tbody id="listfilm">
+                        </tbody>
+                    	
+                    </table>
+                    
+                    
                 </p>
-                <?php }?>
-                
                 <?php for($i=1;$i<=4;$i++){?>
             	<p>
                     <label>Quảng cáo <?php echo $i?>(250px x 250px)</label>
@@ -90,15 +91,36 @@ function save()
 		}
 	);
 }
+var index = 0;
 function intSelectMovie()
 {
-	$('.item').click(function(e) {
-        var eid = $('#handler').val();
-		$('#'+eid).val($(this).attr('id'));
-		$('#'+eid+'_name').html($(this).attr('moviename'));
-		$('#'+eid+'_icon').attr('src',$(this).attr('icone'));
-		
-		$("#filmform").dialog( "close" );
-    });
+	switch($('#outputtype').val())
+	{
+		case "add":
+			$('.item').click(function(e) {
+			var eid = $('#handler').val();
+			var str ='<tr id="row'+index+'">';
+			str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+$(this).attr('id')+'"/></td>';
+			str += '<td><span id="film'+index+'_name">'+$(this).attr('moviename')+'</span></td>';
+			str += '<td><img id="film'+index+'_icon" src="'+$(this).attr('icone')+'"/></td>';
+			str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'row'+index+'\').remove()"/></td>';
+			str += '</tr>';
+			$('#listfilm').append(str);
+			index++;
+			$("#filmform").dialog( "close" );
+    		});
+			break;
+		case "edit":
+			$('.item').click(function(e) {
+			var eid = $('#handler').val();
+			$('#'+eid).val($(this).attr('id'));
+			$('#'+eid+'_name').html($(this).attr('moviename'));
+			$('#'+eid+'_icon').attr('src',$(this).attr('icone'));
+			
+			$("#filmform").dialog( "close" );
+    		});
+			break;
+	}
+	
 }
 </script>
