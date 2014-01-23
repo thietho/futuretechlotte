@@ -24,7 +24,7 @@ class ControllerPageHome extends Controller
 				$film = $this->model_lotte_movie->getItem($filmid);
 				
 				$file = $this->model_core_file->getFile($film['icone']);
-				$film['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 262, 262);
+				$film['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 173, 173);
 				
 				$file = $this->model_core_file->getFile($film['banner']);
 				$film['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 1045, 540);
