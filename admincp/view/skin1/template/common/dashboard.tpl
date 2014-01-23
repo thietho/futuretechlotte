@@ -92,6 +92,28 @@ function save()
 	);
 }
 var index = 0;
+function addRow(obj)
+{
+	var str ='<tr id="row'+index+'">';
+	str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+obj.id+'"/><span id="film'+index+'_name">'+obj.moviename+'</span></td>';
+	str += '<td><img id="film'+index+'_icon" src="'+obj.icone+'"/></td>';
+	str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
+	str += '</tr>';
+	$('#listfilm').append(str);
+	index++;
+}
+var obj = new Object();
+<?php
+	foreach($data_film as $f)
+	{
+?>
+		obj.id = "<?php echo $f['id']?>";
+		obj.moviename = "<?php echo $f['moviename']?>";
+		obj.icone = "<?php echo $f['iconethumbnail']?>";
+		addRow(obj);
+<?php	
+	}
+?>
 function intSelectMovie()
 {
 	switch($('#outputtype').val())
@@ -99,14 +121,11 @@ function intSelectMovie()
 		case "add":
 			$('.item').click(function(e) {
 			var eid = $('#handler').val();
-			var str ='<tr id="row'+index+'">';
-			
-			str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+$(this).attr('id')+'"/><span id="film'+index+'_name">'+$(this).attr('moviename')+'</span></td>';
-			str += '<td><img id="film'+index+'_icon" src="'+$(this).attr('icone')+'"/></td>';
-			str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
-			str += '</tr>';
-			$('#listfilm').append(str);
-			index++;
+			var obj = new Object();
+			obj.id = $(this).attr('id');
+			obj.moviename = $(this).attr('moviename');
+			obj.icone = $(this).attr('icone');
+			addRow(obj);
 			$("#filmform").dialog( "close" );
     		});
 			break;
