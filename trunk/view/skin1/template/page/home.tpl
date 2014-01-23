@@ -60,16 +60,16 @@ function runbanner()
                         	<div id="ben-info-movie" class="ben-item">
                             	<table class="ben-tabs">
                                 	<tr>
-                                    	<td ref="timeshowing">
+                                    	<td class="timeshowing" ref="timeshowing">
                                         	<img src="view/skin1/image/timeshowing.png" />
                                         </td>
-                                        <td ref="cinemaloction">
+                                        <td class="cinemaloction" ref="cinemaloction">
                                         	<img src="view/skin1/image/cinemaloction.png" />
                                         </td>
-                                        <td ref="movieinfo" class="curent">
+                                        <td ref="movieinfo" class="movieinfo curent">
                                         	<img src="view/skin1/image/movieinfo.png" />
                                         </td>
-                                        <td ref="ticketprice">
+                                        <td class="ticketprice" ref="ticketprice">
                                         	<img src="view/skin1/image/ticketprice.png" />
                                         </td>
                                     </tr>
@@ -98,13 +98,15 @@ function runbanner()
                             </div>
                             <script language="javascript">
 							$('.ben-tabs td').click(function(e) {
-								$('.ben-tabs td').removeClass('curent');
-								$(this).addClass('curent');
+								//$('.ben-tabs td').removeClass('curent');
+								//$(this).addClass('curent');
                                 showTabItem($(this).attr("ref"));
 								
                             });
 							function showTabItem(str)
 							{
+								$('.ben-tabs td').removeClass('curent');
+								$('.'+str).addClass('curent');
 								$(".ben-tabs-show").fadeOut('slow',function(){
 									$(".ben-tabs-show").html($('#'+str).html());
 									$(".ben-tabs-show").fadeIn('slow');
@@ -125,7 +127,7 @@ function runbanner()
 							}
 							
 							var countfilm = "<?php echo count($listfilm)?>";
-							function runShowFilm()
+							function runShowFilm(pos)
 							{
 								
 							}
