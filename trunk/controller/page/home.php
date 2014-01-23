@@ -18,9 +18,11 @@ class ControllerPageHome extends Controller
 			$this->load->helper('image');
 			$this->document->title = $this->document->setup['Title'] ." - ". $this->document->setup['Slogan'];
 			//print_r($this->document->setup);
-			for($i=1;$i<=5;$i++)
+			$arr_filmid = split(',',$this->document->setup['listfilm']);
+			//print_r($arr_filmid);
+			foreach($arr_filmid as $filmid)
 			{
-				$filmid=$this->document->setup['film'.$i];
+				//$filmid=$this->document->setup['film'.$i];
 				$film = $this->model_lotte_movie->getItem($filmid);
 				
 				$file = $this->model_core_file->getFile($film['icone']);
@@ -32,7 +34,7 @@ class ControllerPageHome extends Controller
 				$file = $this->model_core_file->getFile($film['image']);
 				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
 				
-				$data_film[$i]=$film;
+				$this->data['listfilm'][]=$film;
 			}
 			for($i=1;$i<=4;$i++)
 			{	
@@ -42,16 +44,8 @@ class ControllerPageHome extends Controller
 				
 			}
 			$cur = $this->request->get['pos'];
-			if(!$cur)
-				$cur = 1;
-			$this->data['curentfilm'] = $data_film[$cur];
-			for($i=1;$i<=5;$i++)
-			{
-				if($i!=$cur)
-				{
-					$this->data['listfilm'][$i] = $data_film[$i];
-				}
-			}
+			
+			
 			
 		}
 		
