@@ -50,7 +50,7 @@ class ControllerCommonDashboard extends Controller
 		
 		
 		
-		for($i=1;$i<=2;$i++)
+		for($i=1;$i<=4;$i++)
 		{	
 			$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'qc'.$i);	
 			$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
@@ -79,7 +79,7 @@ class ControllerCommonDashboard extends Controller
 		{
 			$this->model_core_media->saveInformation($data['mediaid'],"film".$i,$data['film'.$i]);
 		}
-		for($i=1;$i<=2;$i++)
+		for($i=1;$i<=4;$i++)
 		{
 			$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
 		}

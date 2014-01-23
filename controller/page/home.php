@@ -34,7 +34,7 @@ class ControllerPageHome extends Controller
 				
 				$data_film[$i]=$film;
 			}
-			for($i=1;$i<=2;$i++)
+			for($i=1;$i<=4;$i++)
 			{	
 				$fileid = $this->document->setup['qc'.$i];	
 				$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
