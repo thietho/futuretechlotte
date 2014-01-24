@@ -17,7 +17,7 @@
                                 <tr>
                                     <?php foreach($listfilm as $key => $film){ ?>
                                     <td>
-                                        <a onclick="clearTimeout(t);runShowFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                        <a onclick="clearTimeout(t);showFilm1(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                     </td>
                                     <?php } ?>
                                     
@@ -85,7 +85,13 @@ function runbanner()
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
-                                        <img src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px" height="403px"/>
+                                    	<table height="560px">
+                                        	<tr>
+                                            	<td>
+                                        			<img src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px"/>
+                                                </td>
+                                        	</tr>
+                                        </table>
                                     </div>
                                     <div id="moviecontent" class="ben-right">
                                         <?php echo html_entity_decode($listfilm[0]['movieinfo'])?>
@@ -129,6 +135,14 @@ function runbanner()
 							var countfilm = Number("<?php echo count($listfilm)?>");
 							
 							var t;
+							function showFilm1(pos)
+							{
+								if(pos >= countfilm)
+									pos = 0;
+								//alert(pos);
+								showFilm(pos);
+								setTimeout('runShowFilm('+ Number(pos+1) +')',180*1000);
+							}
 							function runShowFilm(pos)
 							{
 								if(pos >= countfilm)
@@ -137,6 +151,7 @@ function runbanner()
 								showFilm(pos);
 								t = setTimeout('runShowFilm('+ Number(pos+1) +')',5000);
 							}
+							
 							runShowFilm(0)
 							</script>
                             
@@ -152,7 +167,14 @@ function runbanner()
                                     </div>
                                     <div id="film_movieinfo">
                                         <div id="movieinfo-image" class="ben-left">
-                                            <img src="<?php echo $film['imagethumbnail']?>" width="214px" height="403px"/>
+                                        	<table height="560px">
+                                                <tr>
+                                                    <td>
+                                                         <img src="<?php echo $film['imagethumbnail']?>" width="214px" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                           
                                         </div>
                                         <div id="moviecontent" class="ben-right">
                                             <?php echo html_entity_decode($film['movieinfo'])?>

@@ -53,6 +53,7 @@
                     <p>
                     	<label>Movie info</label><br />
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('movieinfo','editor')"/>
+                        <input type="button" class="button" value="Chọn video" onclick="browserFile('movieinfo','video')"/>
                     	<textarea class="text" id="movieinfo" name="movieinfo"><?php echo $item['movieinfo']?></textarea>
                     </p>
                     
