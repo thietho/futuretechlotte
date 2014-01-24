@@ -52,7 +52,7 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: normal;
 }
 h4,h5,h6 {font-weight: bold;}
-h1 {font-size: 2.6em;}
+h1 {font-size: 3.2em;}
 h2 {font-size: 1.8em;}
 h3 {font-size: 1.5em;}
 h4 {font-size: 1.25em;}
@@ -382,14 +382,14 @@ input.ben-button:active {border-style: inset;}
 #ben-top{
 	margin: 0 auto;
 	width: 1080px;
-	height:126px;
+	height:94px;
 	
 }
 
 
 /* Logo */
 #ben-logo {	
-	margin:18px 17px;
+	margin:2px 17px;
 }
 #ben-logo img {}
 
@@ -811,7 +811,7 @@ ul#menu li ul li div:hover {
 {
 	position:absolute;
 	margin-left:645px;
-	margin-top:18px;
+	margin-top:0px;
 	
 }
 #ben-header-date .day
@@ -830,9 +830,10 @@ ul#menu li ul li div:hover {
 }
 #ben-header-bottom
 {
-	color:#000;
+	color:#FFF;
 	font-weight:bold;
 	padding:10px 0;
+	background:#6D6E70;
 }
 #ben-info
 {
@@ -840,7 +841,7 @@ ul#menu li ul li div:hover {
 }
 #ben-info .ben-item
 {
-	margin-bottom:30px;	
+	margin-bottom:20px;	
 }
 
 #ben-info-left
@@ -886,8 +887,8 @@ ul#menu li ul li div:hover {
 }
 .ben-tabs-show
 {
-	height:560px;
-	overflow:auto;
+	height:570px;
+	overflow:hidden;
 	padding:15px 0 15px 15px;	
 	
 }
@@ -898,11 +899,13 @@ ul#menu li ul li div:hover {
 }
 #movieinfo-image
 {
-	width:214px;	
+	width:214px;
+	background:#6D6E70;	
 }
 #moviecontent
 {
 	width:790px;
 	height:560px;
 	overflow:auto;
+	margin-right:10px;
 }

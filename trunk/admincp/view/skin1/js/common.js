@@ -456,6 +456,35 @@ function intSeleteFile(type)
 				$("#popup").dialog( "close" );
 			});			
 			break;
+		case "video":
+			$('.filelist').click(function(e) {
+
+				
+				width = "";
+							
+				
+				var value = '<video width="100%"  controls>';
+                value += '<source src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4">';
+                                              
+                value += 'Your browser does not support the video tag.';
+                value += '</video>';
+				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
+				
+				
+				// Check the active editing mode.
+				if (oEditor.mode == 'wysiwyg' )
+				{
+					// Insert the desired HTML.
+					oEditor.insertHtml( value ) ;
+					
+					var temp = oEditor.getData()
+					oEditor.setData( temp );
+				}
+				else
+					alert( 'You must be on WYSIWYG mode!' ) ;
+				$("#popup").dialog( "close" );
+			});			
+			break;
 		case "multi":
 			$('.filelist').click(function(e) {
                 //$('#popup-seletetion').append($(this))
