@@ -60,15 +60,21 @@
 
                 </div>
                 <div id="fragment-timeshow">
-                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('timeshow','editor')"/><br />
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('timeshow','editor')"/>
+                    <input type="button" class="button" value="Chọn video" onclick="browserFile('timeshow','video')"/>
+                    <br />
                 	<textarea class="text" id="timeshow" name="timeshow"><?php echo $item['timeshow']?></textarea>
                 </div>
                 <div id="fragment-cenimalocation">
-                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('cinemalocation','editor')"/><br />
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('cinemalocation','editor')"/>
+                    <input type="button" class="button" value="Chọn video" onclick="browserFile('cinemalocation','video')"/>
+                    <br />
                 	<textarea class="text" id="cinemalocation" name="cinemalocation"><?php echo $item['cinemalocation']?></textarea>
                 </div>
                 <div id="fragment-ticketprice">
-                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('ticketprice','editor')"/><br />
+                	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('ticketprice','editor')"/>
+                    <input type="button" class="button" value="Chọn video" onclick="browserFile('ticketprice','video')"/>
+                    <br />
                 	<textarea class="text" id="ticketprice" name="ticketprice"><?php echo $item['ticketprice']?></textarea>
                 </div>
             </div>
