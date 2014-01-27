@@ -463,7 +463,7 @@ function intSeleteFile(type)
 				width = "";
 							
 				
-				var value = '<video width="100%"  controls>';
+				var value = '<video width="100%"  controls="true">';
                 value += '<source src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4">';
                                               
                 value += 'Your browser does not support the video tag.';
@@ -492,6 +492,7 @@ function intSeleteFile(type)
 			break;
 	}
 }
+
 function addImageTo()
 {
 	var str= trim($("#listselectfile").val(),",");
@@ -533,3 +534,4 @@ function addImageTo()
 		}
 	}
 }
+

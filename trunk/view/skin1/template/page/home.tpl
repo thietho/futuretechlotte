@@ -11,14 +11,21 @@
 						}
 						</style>
 						<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/crawler.js'></script>
+                        <script language="javascript">
+						var arrkey = Array();
+						</script>
+						
                     	<div class="marquee" id="mycrawler">
 
                             <table>
                                 <tr>
                                     <?php foreach($listfilm as $key => $film){ ?>
                                     <td>
-                                        <a onclick="clearTimeout(t);showFilm1(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                        <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                     </td>
+                                    <script language="javascript">
+										arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
+									</script>
                                     <?php } ?>
                                     
                                     
@@ -78,17 +85,17 @@ function runbanner()
                                 	
                                 </div>
                                 <div id="timeshowing" class="ben-tabs-item">
-                                    <?php echo html_entity_decode($listfilm[0]['timeshow'])?>
+                                    
                                 </div>
                                 <div id="cinemaloction" class="ben-tabs-item">
-                                    <?php echo html_entity_decode($listfilm[0]['cinemalocation'])?>
+                                    
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
                                     	<table height="560px">
                                         	<tr>
                                             	<td>
-                                        			<img src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px"/>
+                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px"/>
                                                 </td>
                                         	</tr>
                                         </table>
@@ -99,9 +106,11 @@ function runbanner()
                                     <div class="clearer">&nbsp;</div>
                                 </div>
                                 <div id="ticketprice" class="ben-tabs-item">
-                                    <?php echo html_entity_decode($listfilm[0]['ticketprice'])?>
+                                    
                                 </div>
                             </div>
+                            
+                            
                             <script language="javascript">
 							$('.ben-tabs td').click(function(e) {
 								//$('.ben-tabs td').removeClass('curent');
@@ -124,12 +133,33 @@ function runbanner()
 							showTabItem('movieinfo');
 							function showFilm(pos)
 							{
-								$('#ben-main-banner').attr('src',$('#film'+pos+' #banner').html());
+								/*$('#ben-main-banner').attr('src',$('#film'+pos+' #banner').html());
 								$('#timeshowing').html($('#film'+pos+' #film_timeshowing').html());
 								$('#cinemaloction').html($('#film'+pos+' #film_cinemaloction').html());
 								$('#movieinfo').html($('#film'+pos+' #film_movieinfo').html());
-								$('#ticketprice').html($('#film'+pos+' #film_ticketprice').html());
-								showTabItem('movieinfo');
+								$('#ticketprice').html($('#film'+pos+' #film_ticketprice').html());*/
+								var id = arrkey[pos];
+								
+								$.getJSON("?route=services/movies/getMovies",
+									{
+										col:'id',
+										val:id
+									},
+									function(data)
+									{
+										//alert(data.movies[0].moviename)
+										$(".ben-tabs-show").html('');
+										$('#ben-main-banner').attr('src',data.movies[0].bannerthumbnail);
+										$('#imagefilm').attr('src',data.movies[0].imagethumbnail);
+										$('#moviecontent').html(data.movies[0].movieinfo);
+										
+										$('#timeshowing').html(data.movies[0].timeshow);
+										$('#cinemaloction').html(data.movies[0].cinemalocation);
+										$('#ticketprice').html(data.movies[0].ticketprice);
+										showTabItem('movieinfo');
+										
+									});
+								
 							}
 							
 							var countfilm = Number("<?php echo count($listfilm)?>");
@@ -149,44 +179,14 @@ function runbanner()
 									pos = 0;
 								//alert(pos);
 								showFilm(pos);
-								t = setTimeout('runShowFilm('+ Number(pos+1) +')',5000);
+								t = setTimeout('runShowFilm('+ Number(pos+1) +')',20000);
 							}
 							
 							runShowFilm(0)
 							</script>
                             
-                            <div style="display:none">
-                            	<?php foreach($listfilm as $key => $film){ ?>
-                            	<div id="film<?php echo $key?>">
-                                	<div id="banner"><?php echo $film['bannerthumbnail']?></div>
-                                    <div id="film_timeshowing">
-                                    	<?php echo html_entity_decode($film['timeshow'])?>
-                                    </div>
-                                    <div id="film_cinemaloction">
-                                        <?php echo html_entity_decode($film['cinemalocation'])?>
-                                    </div>
-                                    <div id="film_movieinfo">
-                                        <div id="movieinfo-image" class="ben-left">
-                                        	<table height="560px">
-                                                <tr>
-                                                    <td>
-                                                         <img src="<?php echo $film['imagethumbnail']?>" width="214px" />
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                           
-                                        </div>
-                                        <div id="moviecontent" class="ben-right">
-                                            <?php echo html_entity_decode($film['movieinfo'])?>
-                                        </div>
-                                        <div class="clearer">&nbsp;</div>
-                                    </div>
-                                    <div id="film_ticketprice" class="ben-tabs-item">
-                                        <?php echo html_entity_decode($film['ticketprice'])?>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                            </div>
+                            
+                            
                             <div class="ben-info-banner ben-item">
                             	<table>
                                 	<tr>
