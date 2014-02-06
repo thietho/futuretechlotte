@@ -47,6 +47,10 @@ class ControllerPageHome extends Controller
 			}
 			$cur = $this->request->get['pos'];
 			
+			$fileid = $this->document->setup['CinemaLocation'];	
+			$this->data['CinemaLocation'] = $this->model_core_file->getFile($fileid);
+			$fileid = $this->document->setup['TicketPrice'];
+			$this->data['TicketPrice'] = $this->model_core_file->getFile($fileid);
 			
 			
 		}
