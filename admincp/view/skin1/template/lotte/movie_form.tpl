@@ -19,8 +19,8 @@
             	<ul>
                     <li class="tabs-selected"><a href="#fragment-movieinfo" ><span>Movie info</span></a></li>
                     <li><a href="#fragment-timeshow"><span>Time Show</span></a></li>
-                    <li><a href="#fragment-cenimalocation"><span>Cenima location</span></a></li>
-                    <li><a href="#fragment-ticketprice"><span>Ticket price</span></a></li>
+                    <!--<li><a href="#fragment-cenimalocation"><span>Cenima location</span></a></li>
+                    <li><a href="#fragment-ticketprice"><span>Ticket price</span></a></li>-->
                     
                 </ul>
                 <div id="fragment-movieinfo">
@@ -65,7 +65,7 @@
                     <br />
                 	<textarea class="text" id="timeshow" name="timeshow"><?php echo $item['timeshow']?></textarea>
                 </div>
-                <div id="fragment-cenimalocation">
+                <!--<div id="fragment-cenimalocation">
                 	<input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('cinemalocation','editor')"/>
                     <input type="button" class="button" value="Chọn video" onclick="browserFile('cinemalocation','video')"/>
                     <br />
@@ -76,7 +76,7 @@
                     <input type="button" class="button" value="Chọn video" onclick="browserFile('ticketprice','video')"/>
                     <br />
                 	<textarea class="text" id="ticketprice" name="ticketprice"><?php echo $item['ticketprice']?></textarea>
-                </div>
+                </div>-->
             </div>
             
         </form>
@@ -96,13 +96,13 @@ function save()
 	var pageValue = oEditor.getData();
 	$('textarea#timeshow').val(pageValue);
 	
-	var oEditor = CKEDITOR.instances['cinemalocation'] ;
+	/*var oEditor = CKEDITOR.instances['cinemalocation'] ;
 	var pageValue = oEditor.getData();
 	$('textarea#cinemalocation').val(pageValue);
 	
 	var oEditor = CKEDITOR.instances['ticketprice'] ;
 	var pageValue = oEditor.getData();
-	$('textarea#ticketprice').val(pageValue);
+	$('textarea#ticketprice').val(pageValue);*/
 	
 	$.post("?route=lotte/movie/save",$('#frm_movie').serialize(),
 		function(data){
@@ -126,8 +126,8 @@ function save()
 $(document).ready(function() { 
 	setCKEditorType('movieinfo',2);
 	setCKEditorType('timeshow',2);
-	setCKEditorType('cinemalocation',2);
-	setCKEditorType('ticketprice',2);
+	//setCKEditorType('cinemalocation',2);
+	//setCKEditorType('ticketprice',2);
 	$('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
 	
 });
