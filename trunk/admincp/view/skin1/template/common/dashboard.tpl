@@ -70,6 +70,22 @@
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qcbanner<?php echo $i?>','single')"/>
                 </p>
                 <?php }?>
+                <p>
+                    <label>Cinema Location</label>
+                    <input type="hidden" id="CinemaLocation_fileid" name="CinemaLocation_fileid" value="<?php echo $CinemaLocation['fileid']?>"/><br />
+                    	
+                        <img id="CinemaLocation_preview" src="<?php echo $CinemaLocation['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('CinemaLocation','single')"/>
+                        
+                </p>
+                <p>
+                    <label>Ticket Price</label>
+                    <input type="hidden" id="TicketPrice_fileid" name="TicketPrice_fileid" value="<?php echo $TicketPrice['fileid']?>"/><br />
+                    	
+                        <img id="TicketPrice_preview" src="<?php echo $TicketPrice['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('TicketPrice','single')"/>
+                        
+                </p>
             </div>
         </form>
     

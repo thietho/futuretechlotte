@@ -61,6 +61,14 @@ class ControllerCommonDashboard extends Controller
 			$this->data['qcbanner'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['qcbanner'][$i]['filepath'], 100, 0);
 			
 		}
+		$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'CinemaLocation');	
+		$this->data['CinemaLocation'] = $this->model_core_file->getFile($fileid);
+		$this->data['CinemaLocation']['imagethumbnail'] = HelperImage::resizePNG($this->data['CinemaLocation']['filepath'], 100, 0);
+		
+		$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'TicketPrice');	
+		$this->data['TicketPrice'] = $this->model_core_file->getFile($fileid);
+		$this->data['TicketPrice']['imagethumbnail'] = HelperImage::resizePNG($this->data['TicketPrice']['filepath'], 100, 0);
+		
 	}
 	
 	public function save()
@@ -90,7 +98,8 @@ class ControllerCommonDashboard extends Controller
 			$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
 			$this->model_core_media->saveInformation($data['mediaid'],"qcbanner".$i,$data['qcbanner'.$i.'_fileid']);
 		}
-		
+		$this->model_core_media->saveInformation($data['mediaid'],"CinemaLocation",$data['CinemaLocation_fileid']);
+		$this->model_core_media->saveInformation($data['mediaid'],"TicketPrice",$data['TicketPrice_fileid']);
 		$this->data['output'] = "true";
 		
 		$this->id='content';
