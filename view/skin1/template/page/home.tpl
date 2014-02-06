@@ -88,7 +88,7 @@ function runbanner()
                                     
                                 </div>
                                 <div id="cinemaloction" class="ben-tabs-item">
-                                    
+                                    <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" /></center>
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
@@ -106,7 +106,7 @@ function runbanner()
                                     <div class="clearer">&nbsp;</div>
                                 </div>
                                 <div id="ticketprice" class="ben-tabs-item">
-                                    
+                                    <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" /></center>
                                 </div>
                             </div>
                             
@@ -154,8 +154,8 @@ function runbanner()
 										$('#moviecontent').html(data.movies[0].movieinfo);
 										
 										$('#timeshowing').html(data.movies[0].timeshow);
-										$('#cinemaloction').html(data.movies[0].cinemalocation);
-										$('#ticketprice').html(data.movies[0].ticketprice);
+										//$('#cinemaloction').html(data.movies[0].cinemalocation);
+										//$('#ticketprice').html(data.movies[0].ticketprice);
 										showTabItem('movieinfo');
 										
 									});
