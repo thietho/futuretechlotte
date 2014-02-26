@@ -51,7 +51,7 @@ function time() {
 	$('.day').html(day);
 	$('.date').html(today);
 	$('.time').html(h+":"+m);
-	clocktime=setTimeout("time()","1000","JavaScript");
+	clocktime=setTimeout("time()","1000");
 	function checkTime(i)
 	{
 	if (i<10)
