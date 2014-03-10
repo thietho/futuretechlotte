@@ -463,25 +463,23 @@ function intSeleteFile(type)
 				width = "";
 							
 				
-				var value = '<video width="100%"  controls="true">';
-                value += '<source src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4">';
-                                              
-                value += 'Your browser does not support the video tag.';
-                value += '</video>';
+				//var str = '<video width="100%" controls="true" src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4"></video>';
+               var str = '<embed width="790" height="444" wmode="transparent" flashvars="file='+ HTTP_IMAGE+$(this).attr('filepath')+'&amp;image=&amp;provider=video" allowfullscreen="true" allowscriptaccess="always" src="'+HTTP_DOMAIN+'component/player/mediaplayer.swf" name="player2" type="application/x-shockwave-flash">';
+                
 				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
 				
-				
+				oEditor.insertHtml( str );
 				// Check the active editing mode.
-				if (oEditor.mode == 'wysiwyg' )
+				/*if (oEditor.mode == 'wysiwyg' )
 				{
 					// Insert the desired HTML.
-					oEditor.insertHtml( value ) ;
 					
-					var temp = oEditor.getData()
-					oEditor.setData( temp );
+					
+					//var temp = oEditor.getData()
+					//oEditor.setData( temp );
 				}
 				else
-					alert( 'You must be on WYSIWYG mode!' ) ;
+					alert( 'You must be on WYSIWYG mode!' ) ;*/
 				$("#popup").dialog( "close" );
 			});			
 			break;

@@ -2,7 +2,7 @@
 // HTTP
 define('HTTP_SERVER', 'http://localhost:81/futuretechlotte/admincp/');
 define('HTTP_IMAGE', 'http://localhost:81/futuretechlotte/file/');
-
+define('HTTP_DOMAIN', 'http://localhost:81/futuretechlotte/');
 // HTTPS
 define('HTTPS_SERVER', '');
 define('HTTPS_IMAGE', '');
