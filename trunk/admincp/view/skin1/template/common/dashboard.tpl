@@ -47,7 +47,7 @@
             <div>
             	
                 <p>
-                	<label>Danh sach film</label><br />
+                	<label>Danh sách film đang chiếu</label><br />
                     <input type="button" class="button" value="Chọn film" onclick="selectFilm('listfilm','add')"/><br />
                     <table>
                     	<tbody id="listfilm">
@@ -57,7 +57,18 @@
                     
                     
                 </p>
-                <?php for($i=1;$i<=4;$i++){?>
+                <p>
+                	<label>Danh sách film sắp chiếu</label><br />
+                    <input type="button" class="button" value="Chọn film" onclick="selectFilm('listfilmcoming','add')"/><br />
+                    <table>
+                    	<tbody id="listfilmcoming">
+                        </tbody>
+                    	
+                    </table>
+                    
+                    
+                </p>
+                <?php for($i=1;$i<=$numbanner;$i++){?>
             	<p>
                     <label>Quảng cáo <?php echo $i?></label>
                     <input type="hidden" id="qc<?php echo $i?>_fileid" name="qc<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/><br />
@@ -112,23 +123,32 @@ function save()
 	);
 }
 var index = 0;
-function addRow(obj)
+function addRow(obj,eid)
 {
 	var str ='<tr id="row'+index+'">';
-	str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+obj.id+'"/><span id="film'+index+'_name">'+obj.moviename+'</span></td>';
-	str += '<td><img id="film'+index+'_icon" src="'+obj.icone+'"/></td>';
-	str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
+	str += '<td><input type="hidden" id="'+eid+index+'" name="'+eid+'['+index+']" value="'+obj.id+'"/><span id="'+eid+index+'_name">'+obj.moviename+'</span></td>';
+	str += '<td><img id="'+eid+index+'_icon" src="'+obj.icone+'"/></td>';
+	str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\''+eid+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
 	str += '</tr>';
-	$('#listfilm').append(str);
+	$('#'+eid).append(str);
 	index++;
 }
 var obj = new Object();
-<?php foreach($data_film as $f) { ?>
+<?php foreach($data_listfilm as $f) { ?>
 	
 	obj.id = "<?php echo $f['id']?>";
 	obj.moviename = "<?php echo $f['moviename']?>";
 	obj.icone = "<?php echo $f['iconethumbnail']?>";
-	addRow(obj);
+	addRow(obj, 'listfilm');
+	
+<?php } ?>
+<?php foreach($data_listfilmcoming as $f) { ?>
+	
+	obj.id = "<?php echo $f['id']?>";
+	obj.moviename = "<?php echo $f['moviename']?>";
+	obj.icone = "<?php echo $f['iconethumbnail']?>";
+	addRow(obj, 'listfilmcoming');
+	
 <?php } ?>
 function intSelectMovie()
 {
@@ -141,7 +161,7 @@ function intSelectMovie()
 			obj.id = $(this).attr('id');
 			obj.moviename = $(this).attr('moviename');
 			obj.icone = $(this).attr('icone');
-			addRow(obj);
+			addRow(obj, $('#handler').val());
 			$("#filmform").dialog( "close" );
     		});
 			break;

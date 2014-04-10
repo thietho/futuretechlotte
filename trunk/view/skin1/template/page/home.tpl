@@ -3,39 +3,40 @@
                 	<div >
                     	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="486px"/>
                     </div>
-                    <div id="ben-info-right">
-                    	<style>
-						#ben-sileshowproduct img
-						{
-							margin-right:10px;	
-						}
-						</style>
-						<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/crawler.js'></script>
-                        <script language="javascript">
-						var arrkey = Array();
-						</script>
-						<div id="nowshowing"><center><h2>NOW SHOWING</h2></center></div>
-                    	<div class="marquee" id="mycrawler">
+                    
+					<style>
+                    #ben-sileshowproduct img
+                    {
+                        margin-right:10px;	
+                    }
+                    </style>
+                    <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/crawler.js'></script>
+                    <script language="javascript">
+                    var arrkey = Array();
+                    </script>
+                
+                    <div id="nowshowing"><center><h2>NOW SHOWING</h2></center></div>
+                    <div class="marquee" id="mycrawler">
 
-                            <table>
-                                <tr>
-                                    <?php foreach($listfilm as $key => $film){ ?>
-                                    <td>
-                                        <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
-                                    </td>
-                                    <script language="javascript">
-										arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
-									</script>
-                                    <?php } ?>
-                                    
-                                    
-                                </tr>
-                            </table>
-                            
-                            
-                            
-                        </div>
-                        <script type="text/javascript">
+                        <table>
+                            <tr>
+                                <?php foreach($listfilm as $key => $film){ ?>
+                                <td>
+                                    <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                </td>
+                                <script language="javascript">
+                                    arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
+                                </script>
+                                <?php } ?>
+                                
+                                
+                            </tr>
+                        </table>
+                        
+                        
+                        
+                    </div>
+                    <script type="text/javascript">
 $(document).ready(function(e) {
 	
     setTimeout('runbanner()',1000);
@@ -58,10 +59,27 @@ function runbanner()
 		neutral: 150,
 		savedirection: true,
 		random: true
-	})
+	});
+	marqueeInit({
+		uniqueid: 'mycrawlercoming',
+		style: {
+			
+			
+			'height': '173px',
+			'width': '100%',
+			
+		},
+		inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+		mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+		moveatleast: 2,
+		neutral: 150,
+		savedirection: true,
+		random: true
+	});
+	
 }
 </script>
-                    </div>
+                    
                     <div id="ben-info">
                     	<div id="ben-info-left" >
                         	<div id="ben-info-movie" class="ben-item">
@@ -110,7 +128,8 @@ function runbanner()
                                 </div>
                             </div>
                             
-                            <div id="comingsoon"><center><h2>COMING SOON</h2></center></div>
+                            
+                            
                             <script language="javascript">
 							$('.ben-tabs td').click(function(e) {
 								//$('.ben-tabs td').removeClass('curent');
@@ -200,25 +219,48 @@ function runbanner()
                             
                             
                             
-                            <div class="ben-info-banner ben-item">
-                            	<table>
-                                	<tr>
-                                    	<?php for($i=1;$i<=4;$i++){ ?>
-                                    	<td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></a></td>
-                                        <?php }?>
-                                    </tr>
-                                </table>
-                            	<div style="display:none">
-                                	<?php for($i=1;$i<=4;$i++){ ?>
-                                    <div id="qcbanner<?php echo $i?>">
-                                    	<?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>
-                                    </div>
-                                    <?php }?>
-                                </div>
-                            </div>
+                            
                            
                         </div>
                         
+                    </div>
+                    <div id="comingsoon"><center><h2>COMING SOON</h2></center></div>
+                    <div class="marquee" id="mycrawlercoming">
+
+                        <table>
+                            <tr>
+                                <?php foreach($listfilmcoming as $key => $film){ ?>
+                                <td>
+                                    <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                </td>
+                                <script language="javascript">
+                                    arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
+                                </script>
+                                <?php } ?>
+                                
+                                
+                            </tr>
+                        </table>
+                        
+                        
+                        
+                    </div>
+                    <div id="promotion"><center><h2>PROMOTION</h2></center></div>
+                    <div class="ben-info-banner ben-item">
+                        <table>
+                            <tr>
+                                <?php for($i=1;$i<=6;$i++){ ?>
+                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="180" height="180" /></a></td>
+                                <?php }?>
+                            </tr>
+                        </table>
+                        <div style="display:none">
+                            <?php for($i=1;$i<=4;$i++){ ?>
+                            <div id="qcbanner<?php echo $i?>">
+                                <?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>
+                            </div>
+                            <?php }?>
+                        </div>
                     </div>
                 </div>
             </div>
