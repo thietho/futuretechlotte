@@ -841,7 +841,7 @@ ul#menu li ul li div:hover {
 }
 #ben-info .ben-item
 {
-	margin-bottom:20px;	
+	
 }
 #ben-info td
 {
@@ -858,7 +858,7 @@ ul#menu li ul li div:hover {
 #ben-info-movie
 {
 	width:100%;
-	height:720px;	
+	
 }
 .ben-tabs
 {
@@ -884,13 +884,13 @@ ul#menu li ul li div:hover {
 }
 #ben-info-movie
 {
-	background:#fff;
+	background:#6d6e71;
 	color:#000;
 	
 }
 .ben-tabs-show
 {
-	height:570px;
+	height:481px;
 	overflow:hidden;
 	padding:15px;	
 	
@@ -908,13 +908,17 @@ ul#menu li ul li div:hover {
 #moviecontent
 {
 	width:820px;
-	height:587px;
+	
 	overflow:auto;
 	
 }
 #nowshowing
 {
 	background:#ed1c24;	
+}
+#comingsoon
+{
+	background:#fff200;	
 }
 .timeshowing
 {
