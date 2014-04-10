@@ -1,7 +1,7 @@
 /*** RESET ***/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, input, select {margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, input, select {margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit;}
 table {border-collapse: collapse; border-spacing: 0;}
-caption, th, td {font-weight: normal;}
+caption, th, td {font-weight: normal}
 table, td, th {padding:1px}
 a img {border: none;}
 :focus {outline: 0;}
@@ -843,7 +843,10 @@ ul#menu li ul li div:hover {
 {
 	margin-bottom:20px;	
 }
-
+#ben-info td
+{
+	text-align:center;
+}
 #ben-info-left
 {
 	width:100%;
@@ -855,7 +858,7 @@ ul#menu li ul li div:hover {
 #ben-info-movie
 {
 	width:100%;
-	height:686px;	
+	height:720px;	
 }
 .ben-tabs
 {
@@ -905,7 +908,7 @@ ul#menu li ul li div:hover {
 #moviecontent
 {
 	width:820px;
-	height:560px;
+	height:587px;
 	overflow:auto;
 	
 }
