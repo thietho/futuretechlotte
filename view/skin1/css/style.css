@@ -2,7 +2,7 @@
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, input, select {margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit;}
 table {border-collapse: collapse; border-spacing: 0;}
 caption, th, td {font-weight: normal}
-table, td, th {padding:1px;vertical-align:top}
+table, td, th {vertical-align:top}
 a img {border: none;}
 :focus {outline: 0;}
 
@@ -919,6 +919,10 @@ ul#menu li ul li div:hover {
 #comingsoon
 {
 	background:#fff200;	
+}
+#promotion
+{
+	background:#ec008c;
 }
 .timeshowing
 {

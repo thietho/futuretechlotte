@@ -3,7 +3,7 @@ class ControllerCommonDashboard extends Controller
 {
 	function __construct() 
 	{
-		$this->data['rowmainbanner'] = 4;
+		$this->data['numbanner'] = 6;
 		$this->load->helper('image');
 	}
 	function index()
@@ -37,21 +37,36 @@ class ControllerCommonDashboard extends Controller
 		foreach($arr_filmid as $i => $filmid)
 		{
 			//$filmid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'film'.$i);
-			$this->data['data_film'][$i] = $this->model_lotte_movie->getItem($filmid);
+			$this->data['data_listfilm'][$i] = $this->model_lotte_movie->getItem($filmid);
 			
-			$file = $this->model_core_file->getFile($this->data['data_film'][$i]['icone']);
-			$this->data['data_film'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['data_listfilm'][$i]['icone']);
+			$this->data['data_listfilm'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 			
-			$file = $this->model_core_file->getFile($this->data['data_film'][$i]['banner']);
-			$this->data['data_film'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['data_listfilm'][$i]['banner']);
+			$this->data['data_listfilm'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 			
-			$file = $this->model_core_file->getFile($this->data['data_film'][$i]['image']);
-			$this->data['data_film'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			$file = $this->model_core_file->getFile($this->data['data_listfilm'][$i]['image']);
+			$this->data['data_listfilm'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
 		}
 		
+		$listfilm = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'listfilmcoming');
+		$arr_filmid = split(',',$listfilm);
+		foreach($arr_filmid as $i => $filmid)
+		{
+			//$filmid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'film'.$i);
+			$this->data['data_listfilmcoming'][$i] = $this->model_lotte_movie->getItem($filmid);
+			
+			$file = $this->model_core_file->getFile($this->data['data_listfilmcoming'][$i]['icone']);
+			$this->data['data_listfilmcoming'][$i]['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
+			$file = $this->model_core_file->getFile($this->data['data_listfilmcoming'][$i]['banner']);
+			$this->data['data_listfilmcoming'][$i]['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+			
+			$file = $this->model_core_file->getFile($this->data['data_listfilmcoming'][$i]['image']);
+			$this->data['data_listfilmcoming'][$i]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);
+		}
 		
-		
-		for($i=1;$i<=4;$i++)
+		for($i=1;$i<=$this->data['numbanner'];$i++)
 		{	
 			$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'qc'.$i);	
 			$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
@@ -88,12 +103,17 @@ class ControllerCommonDashboard extends Controller
 		$this->model_core_media->saveInformation($data['mediaid'],"background",$data['background']);
 		
 		
-		if(count($data['film']))
+		if(count($data['listfilm']))
 		{
-			$listfilm = implode(',',$data['film']);
+			$listfilm = implode(',',$data['listfilm']);
 			$this->model_core_media->saveInformation($data['mediaid'],"listfilm",$listfilm);
 		}
-		for($i=1;$i<=4;$i++)
+		if(count($data['listfilmcoming']))
+		{
+			$listfilm = implode(',',$data['listfilmcoming']);
+			$this->model_core_media->saveInformation($data['mediaid'],"listfilmcoming",$listfilm);
+		}
+		for($i=1;$i<=$this->data['numbanner'];$i++)
 		{
 			$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
 			$this->model_core_media->saveInformation($data['mediaid'],"qcbanner".$i,$data['qcbanner'.$i.'_fileid']);

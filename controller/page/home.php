@@ -36,7 +36,25 @@ class ControllerPageHome extends Controller
 				
 				$this->data['listfilm'][]=$film;
 			}
-			for($i=1;$i<=4;$i++)
+			$arr_filmid = split(',',$this->document->setup['listfilmcoming']);
+			//print_r($arr_filmid);
+			foreach($arr_filmid as $filmid)
+			{
+				//$filmid=$this->document->setup['film'.$i];
+				$film = $this->model_lotte_movie->getItem($filmid);
+				
+				$file = $this->model_core_file->getFile($film['icone']);
+				$film['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 173, 173);
+				
+				$file = $this->model_core_file->getFile($film['banner']);
+				$film['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 1080, 486);
+				
+				$file = $this->model_core_file->getFile($film['image']);
+				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
+				
+				$this->data['listfilmcoming'][]=$film;
+			}
+			for($i=1;$i<=6;$i++)
 			{	
 				$fileid = $this->document->setup['qc'.$i];	
 				$this->data['qc'][$i] = $this->model_core_file->getFile($fileid);
