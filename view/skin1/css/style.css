@@ -2,7 +2,7 @@
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, input, select {margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline;}
 table {border-collapse: collapse; border-spacing: 0;}
 caption, th, td {font-weight: normal;}
-table, td, th {vertical-align: middle;padding:1px}
+table, td, th {padding:1px}
 a img {border: none;}
 :focus {outline: 0;}
 
@@ -30,7 +30,7 @@ body {
 	color: #FFF;
 	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
 
 
@@ -499,7 +499,7 @@ display:block;
 /*---------- BODY AREA ------------*/
 #ben-content {margin:0 auto; width:1080px}
 
-#ben-maincontent{ width:1045px; margin:0 auto}
+#ben-maincontent{/* width:1045px;*/ margin:0 auto}
 .ben-two-columns #ben-maincontent{width: 750px;}
 .ben-three-columns #ben-maincontent{width:896px; margin:0 2px;}
 .ben-three-columns-right #ben-maincontent{width:520px; margin-right:20px}
@@ -889,7 +889,7 @@ ul#menu li ul li div:hover {
 {
 	height:570px;
 	overflow:hidden;
-	padding:15px 0 15px 15px;	
+	padding:15px;	
 	
 }
 
@@ -900,12 +900,28 @@ ul#menu li ul li div:hover {
 #movieinfo-image
 {
 	width:214px;
-	background:#6D6E70;	
+	
 }
 #moviecontent
 {
-	width:790px;
+	width:820px;
 	height:560px;
 	overflow:auto;
-	margin-right:10px;
+	
+}
+.timeshowing
+{
+	background:#00F;	
+}
+.cinemaloction
+{
+	background:#0F0;	
+}
+.movieinfo
+{
+	background:#FF0;	
+}
+.ticketprice
+{
+	background:#000;	
 }
