@@ -464,7 +464,7 @@ function intSeleteFile(type)
 							
 				
 				//var str = '<video width="100%" controls="true" src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4"></video>';
-               var str = '<embed width="790" height="444" wmode="transparent" flashvars="file='+ HTTP_IMAGE+$(this).attr('filepath')+'&amp;image=&amp;provider=video" allowfullscreen="false" allowscriptaccess="always" src="'+HTTP_DOMAIN+'component/player/mediaplayer.swf" name="player2" type="application/x-shockwave-flash">';
+               var str = '<embed width="820" height="444" wmode="transparent" flashvars="file='+ HTTP_IMAGE+$(this).attr('filepath')+'&amp;image=&amp;provider=video" allowfullscreen="false" allowscriptaccess="always" src="'+HTTP_DOMAIN+'component/player/mediaplayer.swf" name="player2" type="application/x-shockwave-flash">';
                 
 				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
 				

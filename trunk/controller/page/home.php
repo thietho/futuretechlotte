@@ -29,7 +29,7 @@ class ControllerPageHome extends Controller
 				$film['iconethumbnail'] = HelperImage::resizePNG($file['filepath'], 173, 173);
 				
 				$file = $this->model_core_file->getFile($film['banner']);
-				$film['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 1045, 540);
+				$film['bannerthumbnail'] = HelperImage::resizePNG($file['filepath'], 1080, 558);
 				
 				$file = $this->model_core_file->getFile($film['image']);
 				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);

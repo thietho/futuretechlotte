@@ -1,7 +1,7 @@
 			<div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
-                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1045px" height="540px"/>
+                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="558px"/>
                     </div>
                     <div id="ben-info-right">
                     	<style>
@@ -48,7 +48,7 @@ function runbanner()
 		style: {
 			
 			
-			'height': '208px',
+			'height': '177px',
 			'width': '100%',
 			
 		},
@@ -169,7 +169,8 @@ function runbanner()
 										//$('#cinemaloction').html(data.movies[0].cinemalocation);
 										//$('#ticketprice').html(data.movies[0].ticketprice);
 										showTabItem('movieinfo');
-										
+										$('embed').attr('width','820');
+										$('embed').attr('height','461');
 									});
 								
 							}
