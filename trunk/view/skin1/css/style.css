@@ -2,7 +2,7 @@
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea, input, select {margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit;}
 table {border-collapse: collapse; border-spacing: 0;}
 caption, th, td {font-weight: normal}
-table, td, th {padding:1px}
+table, td, th {padding:1px;vertical-align:top}
 a img {border: none;}
 :focus {outline: 0;}
 
@@ -53,7 +53,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 h4,h5,h6 {font-weight: bold;}
 h1 {font-size: 3.2em;}
-h2 {font-size: 1.8em;}
+h2 {font-size: 2.7em;}
 h3 {font-size: 1.5em;}
 h4 {font-size: 1.25em;}
 h5 {font-size: 1.1em;}
@@ -832,8 +832,8 @@ ul#menu li ul li div:hover {
 {
 	color:#FFF;
 	font-weight:bold;
-	padding:10px 0;
-	background:#6D6E70;
+	
+	background:#f58220;
 }
 #ben-info
 {
@@ -912,19 +912,23 @@ ul#menu li ul li div:hover {
 	overflow:auto;
 	
 }
+#nowshowing
+{
+	background:#ed1c24;	
+}
 .timeshowing
 {
-	background:#00F;	
+	background:#f58220;	
 }
 .cinemaloction
 {
-	background:#0F0;	
+	background:#ec008c;	
 }
 .movieinfo
 {
-	background:#FF0;	
+	background:#fff200;	
 }
 .ticketprice
 {
-	background:#000;	
+	background:#ed1c24;	
 }

@@ -1,7 +1,7 @@
 			<div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
-                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="558px"/>
+                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="486px"/>
                     </div>
                     <div id="ben-info-right">
                     	<style>
@@ -14,7 +14,7 @@
                         <script language="javascript">
 						var arrkey = Array();
 						</script>
-						
+						<div id="nowshowing"><center><h2>NOW SHOWING</h2></center></div>
                     	<div class="marquee" id="mycrawler">
 
                             <table>
@@ -48,7 +48,7 @@ function runbanner()
 		style: {
 			
 			
-			'height': '177px',
+			'height': '173px',
 			'width': '100%',
 			
 		},

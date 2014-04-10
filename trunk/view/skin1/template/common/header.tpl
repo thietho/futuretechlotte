@@ -20,7 +20,7 @@
                 <div class="clearer">&nbsp;</div>
             </div>
             <div id="ben-header-bottom">
-            	<center><h1>VUI LÒNG CHẠM VÀO ĐỂ BIẾT THÔNG TIN CHI TIẾT</h1></center>
+            	<center><h2>VUI LÒNG CHẠM VÀO ĐỂ BIẾT THÔNG TIN CHI TIẾT</h2></center>
             </div>
         </div>
 <script language="javascript">
