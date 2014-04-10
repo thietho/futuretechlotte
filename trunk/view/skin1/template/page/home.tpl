@@ -92,10 +92,10 @@ function runbanner()
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
-                                    	<table height="560px">
+                                    	<table>
                                         	<tr>
                                             	<td>
-                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px"/>
+                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px" height="479px"/>
                                                 </td>
                                         	</tr>
                                         </table>
@@ -110,7 +110,7 @@ function runbanner()
                                 </div>
                             </div>
                             
-                            
+                            <div id="comingsoon"><center><h2>COMING SOON</h2></center></div>
                             <script language="javascript">
 							$('.ben-tabs td').click(function(e) {
 								//$('.ben-tabs td').removeClass('curent');
@@ -170,7 +170,7 @@ function runbanner()
 										//$('#ticketprice').html(data.movies[0].ticketprice);
 										showTabItem('movieinfo');
 										$('embed').attr('width','820');
-										$('embed').attr('height','461');
+										$('embed').attr('height','479');
 									});
 								
 							}
