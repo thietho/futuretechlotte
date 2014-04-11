@@ -22,11 +22,11 @@
                             <tr>
                                 <?php foreach($listfilm as $key => $film){ ?>
                                 <td>
-                                    <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                    <a onclick="clearTimeout(t);showFilm(<?php echo $film['id']?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                 </td>
                                 <script language="javascript">
-                                    arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
-                                </script>
+									arrkey.push("<?php echo $film['id']?>");
+								</script>
                                 <?php } ?>
                                 
                                 
@@ -162,14 +162,14 @@ function runbanner()
 								
 							}
 							showTabItem('movieinfo');
-							function showFilm(pos)
+							function showFilm(id)
 							{
 								/*$('#ben-main-banner').attr('src',$('#film'+pos+' #banner').html());
 								$('#timeshowing').html($('#film'+pos+' #film_timeshowing').html());
 								$('#cinemaloction').html($('#film'+pos+' #film_cinemaloction').html());
 								$('#movieinfo').html($('#film'+pos+' #film_movieinfo').html());
 								$('#ticketprice').html($('#film'+pos+' #film_ticketprice').html());*/
-								var id = arrkey[pos];
+								//var id = arrkey[pos];
 								
 								$.getJSON("?route=services/movies/getMovies",
 									{
@@ -202,19 +202,19 @@ function runbanner()
 								if(pos >= countfilm)
 									pos = 0;
 								//alert(pos);
-								showFilm(pos);
+								showFilm(arrkey[pos]);
 								setTimeout('runShowFilm('+ Number(pos+1) +')',180*1000);
 							}
 							function runShowFilm(pos)
 							{
-								if(pos >= countfilm)
+								if(pos >= arrkey.length)
 									pos = 0;
 								//alert(pos);
-								showFilm(pos);
+								showFilm(arrkey[pos]);
 								t = setTimeout('runShowFilm('+ Number(pos+1) +')',20000);
 							}
 							
-							runShowFilm(0)
+							runShowFilm(arrkey[0])
 							</script>
                             
                             
@@ -231,10 +231,10 @@ function runbanner()
                             <tr>
                                 <?php foreach($listfilmcoming as $key => $film){ ?>
                                 <td>
-                                    <a onclick="clearTimeout(t);showFilm(<?php echo $key?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                    <a onclick="clearTimeout(t);showFilm(<?php echo $film['id']?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                 </td>
                                 <script language="javascript">
-                                    arrkey["<?php echo $key?>"] = "<?php echo $film['id']?>";
+                                    arrkey.push("<?php echo $film['id']?>");
                                 </script>
                                 <?php } ?>
                                 
@@ -255,7 +255,7 @@ function runbanner()
                             </tr>
                         </table>
                         <div style="display:none">
-                            <?php for($i=1;$i<=4;$i++){ ?>
+                            <?php for($i=1;$i<=6;$i++){ ?>
                             <div id="qcbanner<?php echo $i?>">
                                 <?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>
                             </div>
