@@ -32,7 +32,10 @@ body {
 	line-height: 1.5;
 	/*overflow:hidden;*/
 }
-
+.ben-table-run td
+{
+	padding:0 5px;	
+}
 
 
 

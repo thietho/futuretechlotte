@@ -14,20 +14,23 @@
                     <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/crawler.js'></script>
                     <script language="javascript">
                     var arrkey = Array();
+					
                     </script>
-                
+                	<?php $pindex = 0;?>
                     <div id="nowshowing"><center><h2>NOW SHOWING</h2></center></div>
                     <div class="marquee" id="mycrawler">
 
-                        <table>
+                        <table class="ben-table-run">
                             <tr>
                                 <?php foreach($listfilm as $key => $film){ ?>
                                 <td>
-                                    <a onclick="clearTimeout(t);showFilm(<?php echo $film['id']?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                    <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                 </td>
                                 <script language="javascript">
 									arrkey.push("<?php echo $film['id']?>");
+									
 								</script>
+                                	
                                 <?php } ?>
                                 
                                 
@@ -135,11 +138,111 @@ function runbanner()
                             
                             
                             <script language="javascript">
-							$('.ben-tabs td').click(function(e) {
+							/*$('.ben-tabs td').click(function(e) {
 								//$('.ben-tabs td').removeClass('curent');
 								//$(this).addClass('curent');
                                 showTabItem($(this).attr("ref"));
 								
+                            });*/
+							$('.cinemaloction').click(function(e) {
+								$f().pause();
+								var eid = "mediaform";
+								$('body').append('<div id="'+eid+'" style="display:none"></div>');
+								$('body').css('overflow','hidden');
+								$("#"+eid).attr('title','Cinema Location');
+									$("#"+eid).dialog({
+										autoOpen: false,
+										show: "blind",
+										hide: "explode",
+										width: window.innerWidth,
+										height: window.innerHeight,
+										modal: true,
+										close:function()
+											{
+												$("#"+eid).remove();
+												$('body').css('overflow','auto');
+												$f().play();
+											},
+										buttons: {
+											
+											'Đóng': function() 
+											{
+												
+												$("#mediaform").dialog( "close" );
+												
+											},
+										}
+									});
+								
+									$("#"+eid).dialog("open");
+									$("#"+eid).html($('#cinemaloction').html());
+									
+                            });
+							$('.ticketprice').click(function(e) {
+                                $f().pause();
+								var eid = "mediaform";
+								$('body').append('<div id="'+eid+'" style="display:none"></div>');
+								$('body').css('overflow','hidden');
+								$("#"+eid).attr('title','Ticket Price');
+									$("#"+eid).dialog({
+										autoOpen: false,
+										show: "blind",
+										hide: "explode",
+										width: window.innerWidth,
+										height: window.innerHeight,
+										modal: true,
+										close:function()
+											{
+												$("#"+eid).remove();
+												$('body').css('overflow','auto');
+												$f().play();
+											},
+										buttons: {
+											
+											'Đóng': function() 
+											{
+												
+												$("#mediaform").dialog( "close" );
+												
+											},
+										}
+									});
+								
+									$("#"+eid).dialog("open");
+									$("#"+eid).html($('#ticketprice').html());
+                            });
+							$('.timeshowing').click(function(e) {
+                                $f().pause();
+								var eid = "mediaform";
+								$('body').append('<div id="'+eid+'" style="display:none"></div>');
+								$('body').css('overflow','hidden');
+								$("#"+eid).attr('title','Time Show');
+									$("#"+eid).dialog({
+										autoOpen: false,
+										show: "blind",
+										hide: "explode",
+										width: window.innerWidth,
+										height: window.innerHeight,
+										modal: true,
+										close:function()
+											{
+												$("#"+eid).remove();
+												$('body').css('overflow','auto');
+												$f().play();
+											},
+										buttons: {
+											
+											'Đóng': function() 
+											{
+												
+												$("#mediaform").dialog( "close" );
+												
+											},
+										}
+									});
+								
+									$("#"+eid).dialog("open");
+									$("#"+eid).html($('#timeshowing').html());
                             });
 							function showTabItem(str)
 							{
@@ -200,6 +303,21 @@ function runbanner()
 												this.unload();
 												cur++
 												showFilm1(cur);
+											},
+											onError: function(){
+												
+												this.unload();
+												cur++
+												showFilm1(cur);
+											},
+											// disable Fullscreen
+											onBeforeFullscreen:function() {
+												return false;
+											},
+											// disable default controls
+       										plugins: {controls: null},
+											onBeforePause: function() {
+												return false;
 											}
 										});
 
@@ -237,6 +355,7 @@ function runbanner()
 								if(pos >= countfilm)
 									pos = 0;
 								//alert(pos);
+								cur=pos;
 								showFilm(arrkey[pos]);
 								//setTimeout('runShowFilm('+ Number(pos+1) +')',180*1000);
 							}
@@ -263,11 +382,11 @@ function runbanner()
                     <div id="comingsoon"><center><h2>COMING SOON</h2></center></div>
                     <div class="marquee" id="mycrawlercoming">
 
-                        <table>
+                        <table class="ben-table-run">
                             <tr>
                                 <?php foreach($listfilmcoming as $key => $film){ ?>
                                 <td>
-                                    <a onclick="clearTimeout(t);showFilm(<?php echo $film['id']?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
+                                    <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
                                 </td>
                                 <script language="javascript">
                                     arrkey.push("<?php echo $film['id']?>");
