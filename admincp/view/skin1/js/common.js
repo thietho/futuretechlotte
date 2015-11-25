@@ -430,7 +430,20 @@ function intSeleteFile(type)
 				
 			});			
 			break;
+		case "videopreview":
+			$('.filelist').click(function(e) {
+				$('#'+ $('#handler').val()+'_fileid').val($(this).attr('id'));
+				$('#'+ $('#handler').val()).html($(this).attr('filepath'));
+				$('#'+ $('#handler').val()+'_filepath').val($(this).attr('filepath'));
+				 var str = '<embed width="820" height="444" wmode="transparent" flashvars="file='+ HTTP_IMAGE+$(this).attr('filepath')+'&amp;image=&amp;provider=video" allowfullscreen="false" allowscriptaccess="always" src="'+HTTP_DOMAIN+'component/player/mediaplayer.swf" name="player2" type="application/x-shockwave-flash">';
+				$('#'+ $('#handler').val()+'_preview').html(str);
+				
+				$("#popup").dialog( "close" );
+				
+				
+			});			
 			
+			break;	
 		case "editor":
 			$('.filelist').click(function(e) {
 
@@ -456,6 +469,7 @@ function intSeleteFile(type)
 				$("#popup").dialog( "close" );
 			});			
 			break;
+		
 		case "video":
 			$('.filelist').click(function(e) {
 

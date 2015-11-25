@@ -908,7 +908,7 @@ ul#menu li ul li div:hover {
 #moviecontent
 {
 	width:820px;
-	
+	margin:0 15px;
 	overflow:auto;
 	
 }

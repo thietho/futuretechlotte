@@ -155,6 +155,9 @@ class ControllerLotteMovie extends Controller
 			$file = $this->model_core_file->getFile($this->data['item']['image']);
 			$this->data['item']['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 100, 0);	
 			
+			$file = $this->model_core_file->getFile($this->data['item']['movieinfo']);
+			$this->data['item']['movieinfo_path'] = $file['filepath'];	
+			
     	}
 		
 		$this->id='content';
@@ -170,6 +173,7 @@ class ControllerLotteMovie extends Controller
 		$data['icone'] = $data['icone_fileid'];
 		$data['banner'] = $data['banner_fileid'];
 		$data['image'] = $data['image_fileid'];
+		$data['movieinfo'] = $data['movieinfo_fileid'];
 		
 		if($this->validateForm($data))
 		{

@@ -50,6 +50,11 @@ class ControllerServicesMovies extends Controller
 			$file = $this->model_core_file->getFile($item['image']);
 			$datas[$key]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
 			
+			$file = $this->model_core_file->getFile($item['movieinfo']);
+			$datas[$key]['movieinfo_path'] = HTTP_IMAGE.$file['filepath'];
+			
+			
+			
 			$datas[$key]['timeshow'] = html_entity_decode($item['timeshow']);
 			$datas[$key]['cinemalocation'] = html_entity_decode($item['cinemalocation']);
 			$datas[$key]['movieinfo'] = html_entity_decode($item['movieinfo']);

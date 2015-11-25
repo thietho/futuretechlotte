@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<!-- player container-->
+<a href="http://stream.flowplayer.org/flowplayer-700.flv"    class="player"
+    style="display:block;width:425px;height:300px;margin:10px auto"
+    id="player">
+    </a>
+</body>
+<script src="flowplayer-3.2.13.min.js"></script>
+<script language="javascript">
+flowplayer("player", "flowplayer-3.2.18.swf", {
+    clip: {
+        // these two configuration variables does the trick
+        autoPlay: true,
+        autoBuffering: true // <- do not place a comma here
+    },
+	onFinish: function() {
+        alert( 'player unloaded upon onFinish()');
+        this.unload();
+    }
+});
+</script>
+</html>

@@ -1,4 +1,5 @@
-			<div class="ben-section">
+<script src="<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.13.min.js"></script>	
+            <div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
                     	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="486px"/>
@@ -115,12 +116,15 @@ function runbanner()
                                             	<td>
                                         			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px" height="479px"/>
                                                 </td>
+                                                <td>
+                                                	<div id="moviecontent" class="ben-right">
+                                                        <?php echo html_entity_decode($listfilm[0]['movieinfo'])?>
+                                                    </div>
+                                                </td>
                                         	</tr>
                                         </table>
                                     </div>
-                                    <div id="moviecontent" class="ben-right">
-                                        <?php echo html_entity_decode($listfilm[0]['movieinfo'])?>
-                                    </div>
+                                    
                                     <div class="clearer">&nbsp;</div>
                                 </div>
                                 <div id="ticketprice" class="ben-tabs-item">
@@ -182,14 +186,45 @@ function runbanner()
 										$(".ben-tabs-show").html('');
 										$('#ben-main-banner').attr('src',data.movies[0].bannerthumbnail);
 										$('#imagefilm').attr('src',data.movies[0].imagethumbnail);
-										$('#moviecontent').html(data.movies[0].movieinfo);
+										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:820px;height:479px;" id="player"></a>');
+										flowplayer("player", "<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.18.swf", {
+											clip: {
+												// these two configuration variables does the trick
+												autoPlay: true,
+												autoBuffering: true // <- do not place a comma here
+											},
+											onFinish: function() {
+												
+												
+												//alert( 'player unloaded upon onFinish()');
+												this.unload();
+												cur++
+												showFilm1(cur);
+											}
+										});
+
+										//$('#moviecontent').html(data.movies[0].movieinfo);
 										
+										/*jwplayer("moviecontent").setup({
+        
+											file: data.movies[0].movieinfo_path,
+											height: 479,
+											width: 820,
+											autostart: true,
+											modes: [
+												
+												{ type: "flash", src: "<?php echo DIR_COMPONENT?>player/player.swf" }
+											],
+											onComplete:function(event) { alert('Complete!'); return true; }
+										});
+										jwplayer("moviecontent").play();
+   										jwplayer().onComplete( function(event) { alert('Complete!'); return true; } );*/
 										$('#timeshowing').html(data.movies[0].timeshow);
 										//$('#cinemaloction').html(data.movies[0].cinemalocation);
 										//$('#ticketprice').html(data.movies[0].ticketprice);
 										showTabItem('movieinfo');
-										$('embed').attr('width','820');
-										$('embed').attr('height','479');
+										/*$('embed').attr('width','820');
+										$('embed').attr('height','479');*/
 									});
 								
 							}
@@ -203,7 +238,7 @@ function runbanner()
 									pos = 0;
 								//alert(pos);
 								showFilm(arrkey[pos]);
-								setTimeout('runShowFilm('+ Number(pos+1) +')',180*1000);
+								//setTimeout('runShowFilm('+ Number(pos+1) +')',180*1000);
 							}
 							function runShowFilm(pos)
 							{
@@ -211,10 +246,11 @@ function runbanner()
 									pos = 0;
 								//alert(pos);
 								showFilm(arrkey[pos]);
-								t = setTimeout('runShowFilm('+ Number(pos+1) +')',20000);
+								//t = setTimeout('runShowFilm('+ Number(pos+1) +')',20000);
 							}
-							
-							runShowFilm(arrkey[0])
+							var cur = 0;
+							showFilm1(cur);
+							//runShowFilm(arrkey[0])
 							</script>
                             
                             

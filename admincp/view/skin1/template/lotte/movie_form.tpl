@@ -51,10 +51,17 @@
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('image','single')"/>
                     </p>
                     <p>
-                    	<label>Movie info</label><br />
-                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('movieinfo','editor')"/>
-                        <input type="button" class="button" value="Chọn video" onclick="browserFile('movieinfo','video')"/>
-                    	<textarea class="text" id="movieinfo" name="movieinfo"><?php echo $item['movieinfo']?></textarea>
+                    	<label>Movie info</label>
+                        <input type="hidden" id="movieinfo_fileid" name="movieinfo_fileid" value="<?php echo $item['movieinfo']?>"/><br />
+                        <div id="movieinfo_preview">
+                        	<?php if($item['movieinfo']){ ?>
+                        	<embed width="820" height="444" type="application/x-shockwave-flash" name="player2" src="<?php echo DIR_COMPONENT?>/player/mediaplayer.swf" allowscriptaccess="always" allowfullscreen="false" flashvars="file=<?php echo HTTP_IMAGE.$item['movieinfo_path']?>&amp;image=&amp;provider=video" wmode="transparent">
+                            <?php } ?>
+                        </div>
+                        
+                        <input type="button" class="button" value="Chọn phim" onclick="browserFile('movieinfo','videopreview')"/>
+                        
+                        
                     </p>
                     
 
@@ -88,9 +95,9 @@
 function save()
 {
 	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
-	var oEditor = CKEDITOR.instances['movieinfo'] ;
+	/*var oEditor = CKEDITOR.instances['movieinfo'] ;
 	var pageValue = oEditor.getData();
-	$('textarea#movieinfo').val(pageValue);
+	$('textarea#movieinfo').val(pageValue);*/
 	
 	var oEditor = CKEDITOR.instances['timeshow'] ;
 	var pageValue = oEditor.getData();
@@ -124,7 +131,7 @@ function save()
 
 
 $(document).ready(function() { 
-	setCKEditorType('movieinfo',2);
+	//setCKEditorType('movieinfo',2);
 	setCKEditorType('timeshow',2);
 	//setCKEditorType('cinemalocation',2);
 	//setCKEditorType('ticketprice',2);

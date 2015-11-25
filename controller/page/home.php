@@ -34,6 +34,9 @@ class ControllerPageHome extends Controller
 				$file = $this->model_core_file->getFile($film['image']);
 				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
 				
+				$file = $this->model_core_file->getFile($film['movieinfo']);
+				$film['movieinfo_path'] = $file['filepath'];
+				
 				$this->data['listfilm'][]=$film;
 			}
 			$arr_filmid = split(',',$this->document->setup['listfilmcoming']);
@@ -52,6 +55,8 @@ class ControllerPageHome extends Controller
 				$file = $this->model_core_file->getFile($film['image']);
 				$film['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], 214, 0);
 				
+				$file = $this->model_core_file->getFile($film['movieinfo']);
+				$film['movieinfo_path'] = $file['filepath'];
 				$this->data['listfilmcoming'][]=$film;
 			}
 			for($i=1;$i<=6;$i++)
