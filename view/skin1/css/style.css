@@ -933,6 +933,7 @@ ul#menu li ul li div:hover {
 .ben-header-icon
 {
 	position:absolute;
+	width:37px;
 	height:45px;
 	margin-top:-7px;
 }
@@ -963,3 +964,4 @@ ul#menu li ul li div:hover {
 {
 	background:#ed1c24;	
 }
+.table-promotion
