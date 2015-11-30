@@ -17,7 +17,10 @@
 					
                     </script>
                 	<?php $pindex = 0;?>
-                    <div id="nowshowing"><center><h2>NOW SHOWING</h2></center></div>
+                    <div id="nowshowing">
+                    	<img src="view/skin1/image/icon-owshowing.png" class="ben-header-icon">
+                    	<h3>PHIM ĐANG CHIẾU</h3>
+                    </div>
                     <div class="marquee" id="mycrawler">
 
                         <table class="ben-table-run">
@@ -87,22 +90,7 @@ function runbanner()
                     <div id="ben-info">
                     	<div id="ben-info-left" >
                         	<div id="ben-info-movie" class="ben-item">
-                            	<table class="ben-tabs">
-                                	<tr>
-                                    	<td class="timeshowing" ref="timeshowing">
-                                        	<img src="view/skin1/image/timeshowing.png" />
-                                        </td>
-                                        <td class="cinemaloction" ref="cinemaloction">
-                                        	<img src="view/skin1/image/cinemaloction.png" />
-                                        </td>
-                                        <td ref="movieinfo" class="movieinfo curent">
-                                        	<img src="view/skin1/image/movieinfo.png" />
-                                        </td>
-                                        <td class="ticketprice" ref="ticketprice">
-                                        	<img src="view/skin1/image/ticketprice.png" />
-                                        </td>
-                                    </tr>
-                                </table>
+                            	
                                 <div class="ben-tabs-show">
                                 	
                                 </div>
@@ -133,6 +121,22 @@ function runbanner()
                                 <div id="ticketprice" class="ben-tabs-item">
                                     <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" /></center>
                                 </div>
+                                <table class="ben-tabs">
+                                	<tr>
+                                    	<td class="timeshowing" ref="timeshowing">
+                                        	<img src="view/skin1/image/timeshowing.png" />
+                                        </td>
+                                        <td class="cinemaloction" ref="cinemaloction">
+                                        	<img src="view/skin1/image/cinemaloction.png" />
+                                        </td>
+                                        <td ref="movieinfo" class="movieinfo curent">
+                                        	<img src="view/skin1/image/movieinfo.png" />
+                                        </td>
+                                        <td class="ticketprice" ref="ticketprice">
+                                        	<img src="view/skin1/image/ticketprice.png" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             
                             
@@ -161,7 +165,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												$f().play();
+												//$f().play();
 											},
 										buttons: {
 											
@@ -195,7 +199,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												$f().play();
+												//$f().play();
 											},
 										buttons: {
 											
@@ -228,7 +232,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												$f().play();
+												//$f().play();
 											},
 										buttons: {
 											
@@ -315,10 +319,10 @@ function runbanner()
 												return false;
 											},
 											// disable default controls
-       										plugins: {controls: null},
-											onBeforePause: function() {
+       										//plugins: {controls: null},
+											/*onBeforePause: function() {
 												return false;
-											}
+											}*/
 										});
 
 										//$('#moviecontent').html(data.movies[0].movieinfo);

@@ -20,11 +20,11 @@
                 <div class="clearer">&nbsp;</div>
             </div>
             <div id="ben-header-bottom">
-            	<center><h2>VUI LÒNG CHẠM VÀO ĐỂ BIẾT THÔNG TIN CHI TIẾT</h2></center>
+            	
             </div>
         </div>
 <script language="javascript">
-var arrcolor = new Array('#FFF',"#0F0","#fb0303","#ecfb03");
+/*var arrcolor = new Array('#FFF',"#0F0","#fb0303","#ecfb03");
 var incolor = 0;
 function runChangeColor()
 {
@@ -40,6 +40,6 @@ function runChangeColor()
 }
 $(document).ready(function(e) {
     runChangeColor();
-});
+});*/
 
 </script>
