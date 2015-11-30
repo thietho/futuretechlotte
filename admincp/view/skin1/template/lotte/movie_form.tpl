@@ -45,7 +45,7 @@
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('banner','single')"/>
                     </p>
                     <p>
-                        <label>Image(214x403)</label>
+                        <label>Image(320x419)</label>
                         <input type="hidden" id="image_fileid" name="image_fileid" value="<?php echo $item['image']?>"/><br />
                         <img id="image_preview" src="<?php echo $item['imagethumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('image','single')"/>

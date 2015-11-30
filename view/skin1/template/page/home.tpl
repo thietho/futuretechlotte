@@ -17,8 +17,8 @@
 					
                     </script>
                 	<?php $pindex = 0;?>
-                    <div id="nowshowing">
-                    	<img src="view/skin1/image/icon-owshowing.png" class="ben-header-icon">
+                    <div id="nowshowing" class="ben-show-title">
+                    	<img src="view/skin1/image/icon-nowshowing.png" class="ben-header-icon">
                     	<h3>PHIM ĐANG CHIẾU</h3>
                     </div>
                     <div class="marquee" id="mycrawler">
@@ -105,7 +105,7 @@ function runbanner()
                                     	<table>
                                         	<tr>
                                             	<td>
-                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="214px" height="479px"/>
+                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="320px" height="419px"/>
                                                 </td>
                                                 <td>
                                                 	<div id="moviecontent" class="ben-right">
@@ -293,7 +293,7 @@ function runbanner()
 										$(".ben-tabs-show").html('');
 										$('#ben-main-banner').attr('src',data.movies[0].bannerthumbnail);
 										$('#imagefilm').attr('src',data.movies[0].imagethumbnail);
-										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:820px;height:479px;" id="player"></a>');
+										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:745px;height:419px;" id="player"></a>');
 										flowplayer("player", "<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.18.swf", {
 											clip: {
 												// these two configuration variables does the trick
@@ -383,7 +383,10 @@ function runbanner()
                         </div>
                         
                     </div>
-                    <div id="comingsoon"><center><h2>COMING SOON</h2></center></div>
+                    <div id="comingsoon" class="ben-show-title">
+                    	<img src="view/skin1/image/icon-nowshowing.png" class="ben-header-icon">
+                    	<h3>PHIM SẮP CHIẾU</h3>
+                    </div>
                     <div class="marquee" id="mycrawlercoming">
 
                         <table class="ben-table-run">
@@ -404,7 +407,10 @@ function runbanner()
                         
                         
                     </div>
-                    <div id="promotion"><center><h2>PROMOTION</h2></center></div>
+                    <div id="promotion" class="ben-show-title">
+                    	<img src="view/skin1/image/icon-nowshowing.png" class="ben-header-icon">
+                    	<h3>PROMOTION</h3>
+                    </div>
                     <div class="ben-info-banner ben-item">
                         <table>
                             <tr>

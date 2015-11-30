@@ -893,9 +893,9 @@ ul#menu li ul li div:hover {
 }
 .ben-tabs-show
 {
-	height:481px;
+	margin:10px 0;
 	overflow:hidden;
-	padding-top:5px;	
+	
 	
 }
 
@@ -905,22 +905,30 @@ ul#menu li ul li div:hover {
 }
 #movieinfo-image
 {
-	width:214px;
+	width:320px;
 	
 }
 #moviecontent
 {
-	width:820px;
-	margin:0 15px;
+	width:745px;
+	margin-left:15px;
 	overflow:auto;
 	
+}
+.ben-show-title
+{
+	padding: 5px;
+    margin: 10px 0;
+	width:40%;
+}
+.ben-show-title h3
+{
+	margin-left:42px;	
 }
 #nowshowing
 {
 	background:#ed1c24;	
-	padding: 5px;
-    margin: 5px 0;
-	width:40%;
+	
 }
 .ben-header-icon
 {
@@ -928,14 +936,13 @@ ul#menu li ul li div:hover {
 	height:45px;
 	margin-top:-7px;
 }
-#nowshowing h3
-{
-	margin-left:42px;	
-}
+
 #comingsoon
 {
 	background:#fff200;	
+	
 }
+
 #promotion
 {
 	background:#ec008c;
