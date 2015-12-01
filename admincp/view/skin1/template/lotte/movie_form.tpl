@@ -39,7 +39,7 @@
                         
                     </p>
                     <p>
-                        <label>Banner(1045x540)</label>
+                        <label>Banner(1045x572)</label>
                         <input type="hidden" id="banner_fileid" name="banner_fileid" value="<?php echo $item['banner']?>"/><br />
                         <img id="banner_preview" src="<?php echo $item['bannerthumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('banner','single')"/>

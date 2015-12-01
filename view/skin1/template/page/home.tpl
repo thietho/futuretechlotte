@@ -2,7 +2,7 @@
             <div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
-                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="486px"/>
+                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="572px"/>
                     </div>
                     
 					<style>
@@ -407,15 +407,12 @@ function runbanner()
                         
                         
                     </div>
-                    <div id="promotion" class="ben-show-title">
-                    	<img src="view/skin1/image/icon-promotion.png" class="ben-header-icon">
-                    	<h3>PROMOTION</h3>
-                    </div>
+                    
                     <div class="ben-info-banner ben-item">
                         <table class="table-promotion">
                             <tr>
-                                <?php for($i=1;$i<=6;$i++){ ?>
-                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="180" height="180" /></a></td>
+                                <?php for($i=1;$i<=4;$i++){ ?>
+                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></a></td>
                                 <?php }?>
                             </tr>
                         </table>

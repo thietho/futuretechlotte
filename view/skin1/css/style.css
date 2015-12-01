@@ -385,14 +385,14 @@ input.ben-button:active {border-style: inset;}
 #ben-top{
 	margin: 0 auto;
 	width: 1080px;
-	height:94px;
+	height:65px;
 	
 }
 
 
 /* Logo */
 #ben-logo {	
-	margin:2px 17px;
+	margin:15px 17px;
 }
 #ben-logo img {}
 
@@ -813,10 +813,13 @@ ul#menu li ul li div:hover {
 #ben-header-date
 {
 	position:absolute;
-	margin-left:645px;
-	margin-top:0px;
+	margin-left:950px;
+	margin-top:2px;
+	text-align:right;
+	font-size:1.6em;
 	
 }
+
 #ben-header-date .day
 {
 	color:#F00;
@@ -825,11 +828,11 @@ ul#menu li ul li div:hover {
 }
 #ben-header-date .date
 {
-	font-size:2em
+	
 }
 #ben-header-date .time
 {
-	font-size:5em;
+	margin-top:-6px;
 }
 #ben-header-bottom
 {
@@ -965,3 +968,10 @@ ul#menu li ul li div:hover {
 	background:#ed1c24;	
 }
 .table-promotion
+{
+	
+}
+.table-promotion td
+{
+	padding:10px;
+}
