@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	background: #6D6E70;
+	/*background: #6D6E70;*/
 	color: #FFF;
 	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
@@ -34,9 +34,12 @@ body {
 }
 .ben-table-run td
 {
-	padding:0 5px;	
+	padding:9px 5px;	
 }
-
+.ben-table-run img
+{
+	border-radius: 10px;	
+}
 
 
 
@@ -378,14 +381,14 @@ input.ben-button:active {border-style: inset;}
 /*---------- HEADER AREA ------------*/
 /* Header */
 #ben-header {
-	background:url(../image/bg-header.png) no-repeat;
+	background:url(../image/bg-header.png) repeat;
 }
 
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
 	width: 1080px;
-	height:65px;
+	height:88px;
 	
 }
 
@@ -813,10 +816,11 @@ ul#menu li ul li div:hover {
 #ben-header-date
 {
 	position:absolute;
-	margin-left:950px;
-	margin-top:2px;
+	margin-left:895px;
+	margin-top:8px;
 	text-align:right;
-	font-size:1.6em;
+	font-size:2.2em;
+	font-weight:bold;
 	
 }
 
@@ -832,7 +836,7 @@ ul#menu li ul li div:hover {
 }
 #ben-header-date .time
 {
-	margin-top:-6px;
+	margin-top:-8px;
 }
 #ben-header-bottom
 {
@@ -874,7 +878,7 @@ ul#menu li ul li div:hover {
 {
 	text-align:center;
 	padding:6px 0;
-	border-right:15px solid #6d6e70;
+	border-right:15px solid #fff;
 }
 .ben-tabs td:hover
 {
@@ -890,7 +894,7 @@ ul#menu li ul li div:hover {
 }
 #ben-info-movie
 {
-	background:#6d6e71;
+	
 	color:#000;
 	
 }
@@ -908,21 +912,19 @@ ul#menu li ul li div:hover {
 }
 #movieinfo-image
 {
-	width:320px;
+	
 	
 }
 #moviecontent
 {
-	width:745px;
+	
 	margin-left:15px;
 	overflow:auto;
 	
 }
 .ben-show-title
 {
-	padding: 5px;
-    margin: 10px 0;
-	width:40%;
+	margin-right:10px;
 }
 .ben-show-title h3
 {
@@ -930,8 +932,7 @@ ul#menu li ul li div:hover {
 }
 #nowshowing
 {
-	background:#ed1c24;	
-	
+	margin-top:10px;
 }
 .ben-header-icon
 {
@@ -943,7 +944,7 @@ ul#menu li ul li div:hover {
 
 #comingsoon
 {
-	background:#fff200;	
+	margin-top:10px;
 	
 }
 

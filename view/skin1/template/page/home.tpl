@@ -2,7 +2,7 @@
             <div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
-                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="572px"/>
+                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="450px"/>
                     </div>
                     
 					<style>
@@ -17,32 +17,32 @@
 					
                     </script>
                 	<?php $pindex = 0;?>
-                    <div id="nowshowing" class="ben-show-title">
-                    	<img src="view/skin1/image/icon-nowshowing.png" class="ben-header-icon">
-                    	<h3>PHIM ĐANG CHIẾU</h3>
+                    <div id="nowshowing">
+                    	<div class="ben-show-title ben-left">
+                            <img src="view/skin1/image/nowshowing.png">
+                        </div>
+                        <div class="marquee ben-right" id="mycrawler">
+                            <table class="ben-table-run">
+                                <tr>
+                                    <?php foreach($listfilm as $key => $film){ ?>
+                                    <td>
+                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="304" /></a>
+                                    </td>
+                                    <script language="javascript">
+                                        arrkey.push("<?php echo $film['id']?>");
+                                        
+                                    </script>
+                                        
+                                    <?php } ?>
+                                    
+                                    
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="clearer"></div>
                     </div>
-                    <div class="marquee" id="mycrawler">
-
-                        <table class="ben-table-run">
-                            <tr>
-                                <?php foreach($listfilm as $key => $film){ ?>
-                                <td>
-                                    <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
-                                </td>
-                                <script language="javascript">
-									arrkey.push("<?php echo $film['id']?>");
-									
-								</script>
-                                	
-                                <?php } ?>
-                                
-                                
-                            </tr>
-                        </table>
-                        
-                        
-                        
-                    </div>
+                    
+                    
                     <script type="text/javascript">
 $(document).ready(function(e) {
 	
@@ -54,11 +54,9 @@ function runbanner()
 	marqueeInit({
 		uniqueid: 'mycrawler',
 		style: {
-			
-			
-			'height': '173px',
-			'width': '100%',
-			
+			'height': '320px',
+			'width': '1030px',
+			'background':'#7A7C7E'
 		},
 		inc: 5, //speed - pixel increment for each iteration of this marquee's movement
 		mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
@@ -70,11 +68,9 @@ function runbanner()
 	marqueeInit({
 		uniqueid: 'mycrawlercoming',
 		style: {
-			
-			
-			'height': '173px',
-			'width': '100%',
-			
+			'height': '320px',
+			'width': '1030px',
+			'background':'#7A7C7E'
 		},
 		inc: 5, //speed - pixel increment for each iteration of this marquee's movement
 		mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
@@ -105,7 +101,7 @@ function runbanner()
                                     	<table>
                                         	<tr>
                                             	<td>
-                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="320px" height="419px"/>
+                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="344px" height="420px"/>
                                                 </td>
                                                 <td>
                                                 	<div id="moviecontent" class="ben-right">
@@ -293,7 +289,7 @@ function runbanner()
 										$(".ben-tabs-show").html('');
 										$('#ben-main-banner').attr('src',data.movies[0].bannerthumbnail);
 										$('#imagefilm').attr('src',data.movies[0].imagethumbnail);
-										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:745px;height:419px;" id="player"></a>');
+										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:721px;height:420px;" id="player"></a>');
 										flowplayer("player", "<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.18.swf", {
 											clip: {
 												// these two configuration variables does the trick
@@ -383,30 +379,28 @@ function runbanner()
                         </div>
                         
                     </div>
-                    <div id="comingsoon" class="ben-show-title">
-                    	<img src="view/skin1/image/icon-comingsoon.png" class="ben-header-icon">
-                    	<h3>PHIM SẮP CHIẾU</h3>
+                    <div id="comingsoon">
+                    	<div  class="ben-show-title ben-left">
+                            <img src="view/skin1/image/comingsoon.png">
+                        </div>
+                        <div class="marquee ben-right" id="mycrawlercoming">
+                            <table class="ben-table-run">
+                                <tr>
+                                    <?php foreach($listfilmcoming as $key => $film){ ?>
+                                    <td>
+                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="304" /></a>
+                                    </td>
+                                    <script language="javascript">
+                                        arrkey.push("<?php echo $film['id']?>");
+                                    </script>
+                                    <?php } ?>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="clearer"></div>
                     </div>
-                    <div class="marquee" id="mycrawlercoming">
-
-                        <table class="ben-table-run">
-                            <tr>
-                                <?php foreach($listfilmcoming as $key => $film){ ?>
-                                <td>
-                                    <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="173" height="173" /></a>
-                                </td>
-                                <script language="javascript">
-                                    arrkey.push("<?php echo $film['id']?>");
-                                </script>
-                                <?php } ?>
-                                
-                                
-                            </tr>
-                        </table>
-                        
-                        
-                        
-                    </div>
+                    
+                    
                     
                     <div class="ben-info-banner ben-item">
                         <table class="table-promotion">
