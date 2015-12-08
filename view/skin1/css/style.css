@@ -5,18 +5,6 @@ caption, th, td {font-weight: normal}
 table, td, th {vertical-align:top}
 a img {border: none;}
 :focus {outline: 0;}
-
-
-
-
-
-
-
-
-
-
-
-
 /* 
    GENERAL 
 ------------------------------------------------------------------- */
@@ -40,15 +28,6 @@ body {
 {
 	border-radius: 10px;	
 }
-
-
-
-
-
-
-
-
-
 /* 
    TYPING 
 ------------------------------------------------------------------- */
@@ -987,4 +966,8 @@ ul#menu li ul li div:hover {
 {
 	margin-top:-20px;
 	
+}
+.qcbanner
+{
+	margin:5px;	
 }

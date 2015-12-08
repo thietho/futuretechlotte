@@ -268,6 +268,42 @@ function runbanner()
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#ticketprice').html());
                             });
+							$('.event').click(function(e) {
+                                $f().pause();
+								var eid = "mediaform";
+								$('body').append('<div id="'+eid+'" style="display:none"></div>');
+								$('body').css('overflow','hidden');
+								$("#"+eid).attr('title','Event');
+									$("#"+eid).dialog({
+										autoOpen: false,
+										show: "blind",
+										hide: "explode",
+										width: window.innerWidth,
+										height: window.innerHeight,
+										modal: true,
+										close:function()
+											{
+												$("#"+eid).remove();
+												$('body').css('overflow','auto');
+												$('#moviecontent').show();
+												$f().play();
+											},
+										buttons: {
+											
+											'Đóng': function() 
+											{
+												
+												$("#"+eid).dialog( "close" );
+												
+											},
+										}
+									});
+									$('#moviecontent').hide();
+									$("#"+eid).dialog("open");
+									$("#"+eid).html($('#allbanner').html());
+									
+                            });
+							
 							$('.timeshowing').click(function(e) {
                                 $f().pause();
 								var eid = "mediaform";
@@ -484,6 +520,14 @@ function runbanner()
                                 <?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>
                             </div>
                             <?php }?>
+                        </div>
+                        <div id="allbanner" style="display:none">
+                            <?php for($i=1;$i<=6;$i++){ ?>
+                            <div class="qcbanner ben-left">
+                                <img src="<?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>" width="258" height="143">
+                            </div>
+                            <?php }?>
+                            <div class="clear"></div>
                         </div>
                     </div>
                 </div>
