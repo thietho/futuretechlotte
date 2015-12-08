@@ -453,7 +453,9 @@ function runbanner()
                                 <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="258" height="143" /></a></td>
                                 <?php }?>
                                 <td>
-                                	<div id="bottomcam"></div>
+                                	<div id="camview">
+                                		<div id="bottomcam"></div>
+                                    </div>
                                 </td>
                             </tr>
                             
@@ -470,12 +472,12 @@ function runbanner()
             </div>
 <script language="javascript">
 $(document).ready(function(e) {
-    /*Webcam.set({
+    Webcam.set({
 		width: 258,
-		height: 143,
+		height: 193,
 		image_format: 'jpeg',
 		jpeg_quality: 90
 	});
-	Webcam.attach( '#bottomcam' );*/
+	Webcam.attach( '#bottomcam' );
 });
 </script>
