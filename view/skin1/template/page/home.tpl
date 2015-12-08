@@ -270,7 +270,7 @@ function runbanner()
                             });
 							$('.event').click(function(e) {
                                 $f().pause();
-								var eid = "mediaform";
+								var eid = "eventform";
 								$('body').append('<div id="'+eid+'" style="display:none"></div>');
 								$('body').css('overflow','hidden');
 								$("#"+eid).attr('title','Event');
@@ -524,7 +524,7 @@ function runbanner()
                         <div id="allbanner" style="display:none">
                             <?php for($i=1;$i<=6;$i++){ ?>
                             <div class="qcbanner ben-left">
-                                <img src="<?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>" width="258" height="143">
+                                <a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);closeEvent();"><img src="<?php echo HTTP_IMAGE.$qcbanner[$i]['filepath']?>" width="258" height="143"></a>
                             </div>
                             <?php }?>
                             <div class="clear"></div>
@@ -542,4 +542,8 @@ $(document).ready(function(e) {
 	});
 	Webcam.attach( '#bottomcam' );
 });
+function closeEvent()
+{
+	$("#eventform").dialog( "close" );
+}
 </script>
