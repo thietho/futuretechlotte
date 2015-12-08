@@ -944,7 +944,7 @@ ul#menu li ul li div:hover {
 
 #comingsoon
 {
-	margin-top:10px;
+	margin:10px 0;
 	
 }
 
@@ -974,5 +974,10 @@ ul#menu li ul li div:hover {
 }
 .table-promotion td
 {
-	padding:10px;
+	padding:6px;
+}
+#bottomcam
+{
+	width:258px;
+	height:143px;	
 }

@@ -1,4 +1,5 @@
 <script src="<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.13.min.js"></script>	
+<script type="text/javascript" src="<?php echo DIR_COMPONENT?>webcamjs/webcam.js"></script>
             <div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
@@ -144,6 +145,49 @@ function runbanner()
                                 showTabItem($(this).attr("ref"));
 								
                             });*/
+							$('.webcam').click(function(e) {
+                                $f().pause();
+								var eid = "webcamform";
+								$('body').append('<div id="'+eid+'" style="display:none"></div>');
+								$('body').css('overflow','hidden');
+								$("#"+eid).attr('title','Cinema Location');
+									$("#"+eid).dialog({
+										autoOpen: false,
+										show: "blind",
+										hide: "explode",
+										width: 663,
+										height: 592,
+										modal: true,
+										close:function()
+											{
+												Webcam.reset();
+												$("#"+eid).remove();
+												$('body').css('overflow','auto');
+												$f().play();
+												
+											},
+										buttons: {
+											
+											'Đóng': function() 
+											{
+												
+												$("#"+eid).dialog( "close" );
+												
+											},
+										}
+									});
+								
+									
+									$("#"+eid).html('<div id="my_camera"></div>');
+									$("#"+eid).dialog("open");
+									Webcam.set({
+										width: 640,
+										height: 480,
+										image_format: 'jpeg',
+										jpeg_quality: 90
+									});
+									Webcam.attach( '#my_camera' );
+                            });
 							$('.cinemaloction').click(function(e) {
 								$f().pause();
 								var eid = "mediaform";
@@ -168,7 +212,7 @@ function runbanner()
 											'Đóng': function() 
 											{
 												
-												$("#mediaform").dialog( "close" );
+												$("#"+eid).dialog( "close" );
 												
 											},
 										}
@@ -202,7 +246,7 @@ function runbanner()
 											'Đóng': function() 
 											{
 												
-												$("#mediaform").dialog( "close" );
+												$("#"+eid).dialog( "close" );
 												
 											},
 										}
@@ -401,14 +445,18 @@ function runbanner()
                     </div>
                     
                     
-                    
+                    <div id="ben-header-bottom"></div>
                     <div class="ben-info-banner ben-item">
                         <table class="table-promotion">
                             <tr>
-                                <?php for($i=1;$i<=4;$i++){ ?>
-                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="250" height="250" /></a></td>
+                                <?php for($i=1;$i<=3;$i++){ ?>
+                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="258" height="143" /></a></td>
                                 <?php }?>
+                                <td>
+                                	<div id="bottomcam"></div>
+                                </td>
                             </tr>
+                            
                         </table>
                         <div style="display:none">
                             <?php for($i=1;$i<=6;$i++){ ?>
@@ -420,3 +468,14 @@ function runbanner()
                     </div>
                 </div>
             </div>
+<script language="javascript">
+$(document).ready(function(e) {
+    /*Webcam.set({
+		width: 258,
+		height: 143,
+		image_format: 'jpeg',
+		jpeg_quality: 90
+	});
+	Webcam.attach( '#bottomcam' );*/
+});
+</script>
