@@ -30,7 +30,7 @@
                         
                     </p>
                     <p>
-                        <label>Icon(262x262)</label>
+                        <label>Icon(196x304)</label>
                         
                         <input type="hidden" id="icone_fileid" name="icone_fileid" value="<?php echo $item['icone']?>"/><br />
                         <img id="icone_preview" src="<?php echo $item['iconethumbnail']?>"/>
@@ -39,13 +39,13 @@
                         
                     </p>
                     <p>
-                        <label>Banner(1045x572)</label>
+                        <label>Banner(1080x450)</label>
                         <input type="hidden" id="banner_fileid" name="banner_fileid" value="<?php echo $item['banner']?>"/><br />
                         <img id="banner_preview" src="<?php echo $item['bannerthumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('banner','single')"/>
                     </p>
                     <p>
-                        <label>Image(320x419)</label>
+                        <label>Image(344x420)</label>
                         <input type="hidden" id="image_fileid" name="image_fileid" value="<?php echo $item['image']?>"/><br />
                         <img id="image_preview" src="<?php echo $item['imagethumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('image','single')"/>
