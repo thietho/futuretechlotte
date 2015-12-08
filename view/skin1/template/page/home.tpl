@@ -150,19 +150,27 @@ function runbanner()
 								var eid = "webcamform";
 								$('body').append('<div id="'+eid+'" style="display:none"></div>');
 								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Cinema Location');
+								$("#"+eid).attr('title','Webcam');
 									$("#"+eid).dialog({
 										autoOpen: false,
 										show: "blind",
 										hide: "explode",
-										width: 663,
-										height: 592,
+										width: 670,
+										height: 595,
 										modal: true,
 										close:function()
 											{
 												Webcam.reset();
+												Webcam.set({
+													width: 258,
+													height: 193,
+													image_format: 'jpeg',
+													jpeg_quality: 90
+												});
+												Webcam.attach( '#bottomcam' );
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
+												$('#moviecontent').show();
 												$f().play();
 												
 											},
@@ -179,7 +187,10 @@ function runbanner()
 								
 									
 									$("#"+eid).html('<div id="my_camera"></div>');
+									//$("#"+eid).html($('#bottomcam').html());
 									$("#"+eid).dialog("open");
+									$('#moviecontent').hide();
+									Webcam.reset();
 									Webcam.set({
 										width: 640,
 										height: 480,
@@ -205,6 +216,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
+												$('#moviecontent').show();
 												$f().play();
 											},
 										buttons: {
@@ -217,7 +229,7 @@ function runbanner()
 											},
 										}
 									});
-								
+									$('#moviecontent').hide();
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#cinemaloction').html());
 									
@@ -239,6 +251,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
+												$('#moviecontent').show();
 												$f().play();
 											},
 										buttons: {
@@ -251,7 +264,7 @@ function runbanner()
 											},
 										}
 									});
-								
+									$('#moviecontent').hide();
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#ticketprice').html());
                             });
@@ -272,6 +285,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
+												$('#moviecontent').show();
 												$f().play();
 											},
 										buttons: {
@@ -284,7 +298,7 @@ function runbanner()
 											},
 										}
 									});
-								
+									$('#moviecontent').hide();
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#timeshowing').html());
                             });
@@ -333,12 +347,15 @@ function runbanner()
 										$(".ben-tabs-show").html('');
 										$('#ben-main-banner').attr('src',data.movies[0].bannerthumbnail);
 										$('#imagefilm').attr('src',data.movies[0].imagethumbnail);
-										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:721px;height:420px;" id="player"></a>');
+										$('#moviecontent').html('<a href="'+data.movies[0].movieinfo_path+'" class="player" style="display:block;width:721px;height:420px;z-index:0" id="player"></a>');
 										flowplayer("player", "<?php echo DIR_COMPONENT?>flowplayer/flowplayer-3.2.18.swf", {
 											clip: {
 												// these two configuration variables does the trick
 												autoPlay: true,
 												autoBuffering: true // <- do not place a comma here
+											},
+											onLoad: function() {
+												//$("#moviecontent object").attr("wmode","transparent");
 											},
 											onFinish: function() {
 												
@@ -358,13 +375,14 @@ function runbanner()
 											onBeforeFullscreen:function() {
 												return false;
 											},
+											
 											// disable default controls
        										//plugins: {controls: null},
 											/*onBeforePause: function() {
 												return false;
 											}*/
 										});
-
+										
 										//$('#moviecontent').html(data.movies[0].movieinfo);
 										
 										/*jwplayer("moviecontent").setup({
