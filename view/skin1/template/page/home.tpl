@@ -119,17 +119,17 @@ function runbanner()
                                 </div>
                                 <table class="ben-tabs">
                                 	<tr>
-                                    	<td class="timeshowing" ref="timeshowing">
-                                        	<img src="view/skin1/image/timeshowing.png" />
+                                    	<td class="webcam" ref="webcam">
+                                        	<img src="view/skin1/image/button/webcam.png" />
                                         </td>
-                                        <td class="cinemaloction" ref="cinemaloction">
-                                        	<img src="view/skin1/image/cinemaloction.png" />
+                                        <td class="event" ref="event">
+                                        	<img src="view/skin1/image/button/event.png" />
                                         </td>
-                                        <td ref="movieinfo" class="movieinfo curent">
-                                        	<img src="view/skin1/image/movieinfo.png" />
+                                        <td ref="cinemaloction" class="cinemaloction">
+                                        	<img src="view/skin1/image/button/layout.png" />
                                         </td>
                                         <td class="ticketprice" ref="ticketprice">
-                                        	<img src="view/skin1/image/ticketprice.png" />
+                                        	<img src="view/skin1/image/button/ticket.png" />
                                         </td>
                                     </tr>
                                 </table>
@@ -161,7 +161,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												//$f().play();
+												$f().play();
 											},
 										buttons: {
 											
@@ -195,7 +195,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												//$f().play();
+												$f().play();
 											},
 										buttons: {
 											
@@ -228,7 +228,7 @@ function runbanner()
 											{
 												$("#"+eid).remove();
 												$('body').css('overflow','auto');
-												//$f().play();
+												$f().play();
 											},
 										buttons: {
 											

@@ -872,21 +872,21 @@ ul#menu li ul li div:hover {
 }
 .ben-tabs
 {
-	background:#404041;	
+	
 }
 .ben-tabs td
 {
 	text-align:center;
-	padding:6px 0;
-	border-right:15px solid #fff;
+	
+	
 }
 .ben-tabs td:hover
 {
-	background:#58595b;
+	
 }
 .ben-tabs td.curent
 {
-	background:#58595b;
+	
 }
 .ben-tabs td:last-child
 {
@@ -950,23 +950,23 @@ ul#menu li ul li div:hover {
 
 #promotion
 {
-	background:#ec008c;
+	
 }
 .timeshowing
 {
-	background:#f58220;	
+	
 }
 .cinemaloction
 {
-	background:#ec008c;	
+	
 }
 .movieinfo
 {
-	background:#fff200;	
+	
 }
 .ticketprice
 {
-	background:#ed1c24;	
+	
 }
 .table-promotion
 {
