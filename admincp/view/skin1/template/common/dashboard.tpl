@@ -105,6 +105,11 @@
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('Event','single')"/>
                         
                 </p>
+                <p>
+                    <label>Webcam</label>
+                    <input type="checkbox" id="Webcam" name="Webcam" value="1"  <?php echo ($Webcam==1)?"checked":"" ?>/>
+                        
+                </p>
             </div>
         </form>
     

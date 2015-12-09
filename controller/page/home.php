@@ -76,7 +76,7 @@ class ControllerPageHome extends Controller
 			$this->data['TicketPrice'] = $this->model_core_file->getFile($fileid);
 			$fileid = $this->document->setup['Event'];
 			$this->data['Event'] = $this->model_core_file->getFile($fileid);
-			
+			$this->data['Webcam'] = $this->document->setup['Webcam'];
 		}
 		
 		$this->id="content";

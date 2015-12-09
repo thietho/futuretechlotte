@@ -45,10 +45,20 @@
                     
                     
                     <script type="text/javascript">
+var t;
 $(document).ready(function(e) {
 	
     setTimeout('runbanner()',1000);
 
+});
+$('body').click(function(e) {
+    clearTimeout(t);
+	//if($())
+	t = setTimeout(function(){
+			$('.ben-tabs td').removeClass('curent');
+			$('.movieinfo').addClass('curent');
+			showTabItem('movieinfo');
+		},5000);
 });
 function runbanner()
 {
@@ -88,16 +98,12 @@ function runbanner()
                     	<div id="ben-info-left" >
                         	<div id="ben-info-movie" class="ben-item">
                             	
-                                <div class="ben-tabs-show">
-                                	
-                                </div>
-                                <div id="timeshowing" class="ben-tabs-item">
-                                    
-                                </div>
-                                <div id="event" class="ben-tabs-item">
+                                
+                                
+                                <div id="event" class="ben-tabs-item" style="display:none">
                                     <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" /></center>
                                 </div>
-                                <div id="cinemaloction" class="ben-tabs-item">
+                                <div id="cinemaloction" class="ben-tabs-item" style="display:none">
                                     <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" /></center>
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
@@ -118,13 +124,13 @@ function runbanner()
                                     
                                     <div class="clearer">&nbsp;</div>
                                 </div>
-                                <div id="ticketprice" class="ben-tabs-item">
+                                <div id="ticketprice" class="ben-tabs-item" style="display:none">
                                     <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" /></center>
                                 </div>
                                 <table class="ben-tabs">
                                 	<tr>
-                                    	<td class="movieinfo" ref="movieinfo">
-                                        	<img src="view/skin1/image/button/webcam.png" />
+                                    	<td class="movieinfo curent" ref="movieinfo">
+                                        	<img src="view/skin1/image/button/movieinfo.png" />
                                         </td>
                                         <td class="event" ref="event">
                                         	<img src="view/skin1/image/button/event.png" />
@@ -143,10 +149,12 @@ function runbanner()
                             
                             <script language="javascript">
 							$('.ben-tabs td').click(function(e) {
-								//$('.ben-tabs td').removeClass('curent');
-								//$(this).addClass('curent');
-                                showTabItem($(this).attr("ref"));
-								
+								if(!$(this).hasClass('curent'))
+								{
+									$('.ben-tabs td').removeClass('curent');
+									$(this).addClass('curent');
+									showTabItem($(this).attr("ref"));
+								}
                             });
 							/*$('.webcam').click(function(e) {
                                 $f().pause();
@@ -345,23 +353,24 @@ function runbanner()
                             });*/
 							function showTabItem(str)
 							{
-								$('.ben-tabs td').removeClass('curent');
-								$('.'+str).addClass('curent');
-								$(".ben-tabs-show").fadeOut('slow',function(){
-									var html = $('#'+str).html();
+								//$('.ben-tabs td').removeClass('curent');
+								//$('.'+str).addClass('curent');
+								$(".ben-tabs-item").fadeOut(function(){
+									$('#'+str).fadeIn();
+									//var html = $('#'+str).html();
 									
 									//html=html.replace(/<video/g,'<embed');
 									//html=html.replace(/\/video/g,'/embed');
 									//alert(html)
-									$(".ben-tabs-show").html(html);
-									$(".ben-tabs-show").fadeIn('slow',function(){
+									//$(".ben-tabs-show").html(html);
+									//$(".ben-tabs-show").fadeIn('slow',function(){
 										//$('.ben-tabs-show video').each(function(index, element) {
                                            
                                         //});
 										
 										//$('.ben-tabs-show video').removeAttr("controls");
 										//$('.ben-tabs-show video').attr("autoplay","autoplay");
-									});
+									//});
 								})
 								
 								
@@ -452,7 +461,7 @@ function runbanner()
 							
 							var countfilm = Number("<?php echo count($listfilm)?>");
 							
-							var t;
+							
 							function showFilm1(pos)
 							{
 								if(pos >= countfilm)
@@ -506,6 +515,7 @@ function runbanner()
                     
                     <div id="ben-header-bottom"></div>
                     <div class="ben-info-banner ben-item">
+                    	<?php if($Webcam){ ?>
                         <table class="table-promotion">
                             <tr>
                                 <?php for($i=1;$i<=3;$i++){ ?>
@@ -519,6 +529,29 @@ function runbanner()
                             </tr>
                             
                         </table>
+<script language="javascript">
+$(document).ready(function(e) {
+    Webcam.set({
+		width: 258,
+		height: 193,
+		image_format: 'jpeg',
+		jpeg_quality: 90
+	});
+	Webcam.attach( '#bottomcam' );
+});
+
+</script>
+                        <?php }else{?>
+                        <table class="table-promotion">
+                            <tr>
+                                <?php for($i=1;$i<=4;$i++){ ?>
+                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="258" height="143" /></a></td>
+                                <?php }?>
+                                
+                            </tr>
+                            
+                        </table>
+                        <?php } ?>
                         <div style="display:none">
                             <?php for($i=1;$i<=6;$i++){ ?>
                             <div id="qcbanner<?php echo $i?>">
@@ -537,18 +570,3 @@ function runbanner()
                     </div>
                 </div>
             </div>
-<script language="javascript">
-$(document).ready(function(e) {
-    Webcam.set({
-		width: 258,
-		height: 193,
-		image_format: 'jpeg',
-		jpeg_quality: 90
-	});
-	Webcam.attach( '#bottomcam' );
-});
-function closeEvent()
-{
-	$("#eventform").dialog( "close" );
-}
-</script>

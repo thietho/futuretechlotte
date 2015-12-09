@@ -88,6 +88,8 @@ class ControllerCommonDashboard extends Controller
 		$this->data['Event'] = $this->model_core_file->getFile($fileid);
 		$this->data['Event']['imagethumbnail'] = HelperImage::resizePNG($this->data['Event']['filepath'], 100, 0);
 		
+		$this->data['Webcam'] = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'Webcam');	
+		
 	}
 	
 	public function save()
@@ -125,6 +127,8 @@ class ControllerCommonDashboard extends Controller
 		$this->model_core_media->saveInformation($data['mediaid'],"CinemaLocation",$data['CinemaLocation_fileid']);
 		$this->model_core_media->saveInformation($data['mediaid'],"TicketPrice",$data['TicketPrice_fileid']);
 		$this->model_core_media->saveInformation($data['mediaid'],"Event",$data['Event_fileid']);
+		
+		$this->model_core_media->saveInformation($data['mediaid'],"Webcam",$data['Webcam']);
 		$this->data['output'] = "true";
 		
 		$this->id='content';

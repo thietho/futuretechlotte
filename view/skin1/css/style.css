@@ -19,7 +19,7 @@ body {
 	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
 	
-	/*overflow:hidden;*/
+	overflow:hidden;
 }
 .ben-table-run td
 {
@@ -822,7 +822,7 @@ ul#menu li ul li div:hover {
 {
 	color:#FFF;
 	font-weight:bold;
-	height:5px;
+	height:9px;
 	background:red;
 }
 #ben-info
@@ -912,7 +912,7 @@ ul#menu li ul li div:hover {
 }
 #nowshowing
 {
-	margin-top:10px;
+	margin:10px 0;
 }
 .ben-header-icon
 {
