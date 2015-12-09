@@ -3,6 +3,7 @@
 <head>
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>icon.png" rel="icon">
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>icon.png" rel="shortcut icon">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="INDEX,FOLLOW" />
 <meta http-equiv="REFRESH" content="5400" />
@@ -23,7 +24,7 @@
 
 <link href="view/skin1/css/style.css" rel="stylesheet">
 
-<body>
+<body oncontextmenu="return false">
 	<div id="ben-body">
     <div id="ben-main">
     	<?php echo $header?>

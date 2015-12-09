@@ -94,6 +94,9 @@ function runbanner()
                                 <div id="timeshowing" class="ben-tabs-item">
                                     
                                 </div>
+                                <div id="event" class="ben-tabs-item">
+                                    <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" /></center>
+                                </div>
                                 <div id="cinemaloction" class="ben-tabs-item">
                                     <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" /></center>
                                 </div>
@@ -120,7 +123,7 @@ function runbanner()
                                 </div>
                                 <table class="ben-tabs">
                                 	<tr>
-                                    	<td class="webcam" ref="webcam">
+                                    	<td class="movieinfo" ref="movieinfo">
                                         	<img src="view/skin1/image/button/webcam.png" />
                                         </td>
                                         <td class="event" ref="event">
@@ -139,13 +142,13 @@ function runbanner()
                             
                             
                             <script language="javascript">
-							/*$('.ben-tabs td').click(function(e) {
+							$('.ben-tabs td').click(function(e) {
 								//$('.ben-tabs td').removeClass('curent');
 								//$(this).addClass('curent');
                                 showTabItem($(this).attr("ref"));
 								
-                            });*/
-							$('.webcam').click(function(e) {
+                            });
+							/*$('.webcam').click(function(e) {
                                 $f().pause();
 								var eid = "webcamform";
 								$('body').append('<div id="'+eid+'" style="display:none"></div>');
@@ -235,6 +238,7 @@ function runbanner()
 									
                             });
 							$('.ticketprice').click(function(e) {
+								
                                 $f().pause();
 								var eid = "mediaform";
 								$('body').append('<div id="'+eid+'" style="display:none"></div>');
@@ -267,6 +271,7 @@ function runbanner()
 									$('#moviecontent').hide();
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#ticketprice').html());
+								
                             });
 							$('.event').click(function(e) {
                                 $f().pause();
@@ -337,7 +342,7 @@ function runbanner()
 									$('#moviecontent').hide();
 									$("#"+eid).dialog("open");
 									$("#"+eid).html($('#timeshowing').html());
-                            });
+                            });*/
 							function showTabItem(str)
 							{
 								$('.ben-tabs td').removeClass('curent');

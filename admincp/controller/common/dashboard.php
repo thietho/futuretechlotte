@@ -84,6 +84,10 @@ class ControllerCommonDashboard extends Controller
 		$this->data['TicketPrice'] = $this->model_core_file->getFile($fileid);
 		$this->data['TicketPrice']['imagethumbnail'] = HelperImage::resizePNG($this->data['TicketPrice']['filepath'], 100, 0);
 		
+		$fileid = $this->model_core_media->getInformation($this->data['item']['mediaid'], 'Event');	
+		$this->data['Event'] = $this->model_core_file->getFile($fileid);
+		$this->data['Event']['imagethumbnail'] = HelperImage::resizePNG($this->data['Event']['filepath'], 100, 0);
+		
 	}
 	
 	public function save()
@@ -120,6 +124,7 @@ class ControllerCommonDashboard extends Controller
 		}
 		$this->model_core_media->saveInformation($data['mediaid'],"CinemaLocation",$data['CinemaLocation_fileid']);
 		$this->model_core_media->saveInformation($data['mediaid'],"TicketPrice",$data['TicketPrice_fileid']);
+		$this->model_core_media->saveInformation($data['mediaid'],"Event",$data['Event_fileid']);
 		$this->data['output'] = "true";
 		
 		$this->id='content';
