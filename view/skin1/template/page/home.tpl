@@ -96,37 +96,38 @@ function runbanner()
                     
                     <div id="ben-info">
                     	<div id="ben-info-left" >
-                        	<div id="ben-info-movie" class="ben-item">
+                        	<div id="ben-info-movie" >
                             	
-                                
-                                
-                                <div id="event" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" width="1080px" height="419px"/></center>
-                                </div>
-                                <div id="cinemaloction" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" width="1080px" height="419px"/></center>
-                                </div>
-                                <div id="movieinfo" class="ben-tabs-item">
-                                    <div id="movieinfo-image" class="ben-left">
-                                    	<table>
-                                        	<tr>
-                                            	<td>
-                                        			<img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="344px" height="420px"/>
-                                                </td>
-                                                <td>
-                                                	<div id="moviecontent" class="ben-right">
-                                                        <?php echo html_entity_decode($listfilm[0]['movieinfo'])?>
-                                                    </div>
-                                                </td>
-                                        	</tr>
-                                        </table>
+                                <div class="ben-item">
+                                     <div id="event" class="ben-tabs-item" style="display:none">
+                                        <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" width="1080px" height="419px"/></center>
                                     </div>
-                                    
-                                    <div class="clearer">&nbsp;</div>
+                                    <div id="cinemaloction" class="ben-tabs-item" style="display:none">
+                                        <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" width="1080px" height="419px"/></center>
+                                    </div>
+                                    <div id="movieinfo" class="ben-tabs-item">
+                                        <div id="movieinfo-image" class="ben-left">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <img id="imagefilm" src="<?php echo $listfilm[0]['imagethumbnail']?>" width="344px" height="420px"/>
+                                                    </td>
+                                                    <td>
+                                                        <div id="moviecontent" class="ben-right">
+                                                            <?php echo html_entity_decode($listfilm[0]['movieinfo'])?>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        
+                                        <div class="clearer">&nbsp;</div>
+                                    </div>
+                                    <div id="ticketprice" class="ben-tabs-item" style="display:none">
+                                        <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" width="1080px" height="419px"/></center>
+                                    </div>                               	
                                 </div>
-                                <div id="ticketprice" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" width="1080px" height="419px"/></center>
-                                </div>
+                                
                                 <table class="ben-tabs">
                                 	<tr>
                                     	<td class="movieinfo curent" ref="movieinfo">
@@ -355,8 +356,8 @@ function runbanner()
 							{
 								//$('.ben-tabs td').removeClass('curent');
 								//$('.'+str).addClass('curent');
-								$(".ben-tabs-item").hide(function(){
-									$('#'+str).show();
+								$(".ben-tabs-item").fadeOut(function(){
+									$('#'+str).fadeIn();
 									//var html = $('#'+str).html();
 									
 									//html=html.replace(/<video/g,'<embed');
