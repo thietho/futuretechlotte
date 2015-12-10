@@ -19,7 +19,7 @@ body {
 	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
 	
-	/*overflow:hidden;*/
+	overflow:hidden;
 }
 .ben-table-run td
 {
@@ -832,6 +832,7 @@ ul#menu li ul li div:hover {
 #ben-info .ben-item
 {
 	height:420px;
+	overflow:hidden;
 }
 #ben-info td
 {
