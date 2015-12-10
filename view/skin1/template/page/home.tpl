@@ -101,10 +101,10 @@ function runbanner()
                                 
                                 
                                 <div id="event" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" /></center>
+                                    <center><img src="<?php echo HTTP_IMAGE.$Event['filepath']?>" width="1080px" height="419px"/></center>
                                 </div>
                                 <div id="cinemaloction" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" /></center>
+                                    <center><img src="<?php echo HTTP_IMAGE.$CinemaLocation['filepath']?>" width="1080px" height="419px"/></center>
                                 </div>
                                 <div id="movieinfo" class="ben-tabs-item">
                                     <div id="movieinfo-image" class="ben-left">
@@ -125,7 +125,7 @@ function runbanner()
                                     <div class="clearer">&nbsp;</div>
                                 </div>
                                 <div id="ticketprice" class="ben-tabs-item" style="display:none">
-                                    <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" /></center>
+                                    <center><img src="<?php echo HTTP_IMAGE.$TicketPrice['filepath']?>" width="1080px" height="419px"/></center>
                                 </div>
                                 <table class="ben-tabs">
                                 	<tr>
@@ -355,8 +355,8 @@ function runbanner()
 							{
 								//$('.ben-tabs td').removeClass('curent');
 								//$('.'+str).addClass('curent');
-								$(".ben-tabs-item").fadeOut(function(){
-									$('#'+str).fadeIn();
+								$(".ben-tabs-item").hide(function(){
+									$('#'+str).show();
 									//var html = $('#'+str).html();
 									
 									//html=html.replace(/<video/g,'<embed');
