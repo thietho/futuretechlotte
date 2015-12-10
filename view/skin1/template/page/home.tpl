@@ -58,7 +58,7 @@ $('body').click(function(e) {
 			$('.ben-tabs td').removeClass('curent');
 			$('.movieinfo').addClass('curent');
 			showTabItem('movieinfo');
-		},5000);
+		},30000);
 });
 function runbanner()
 {
@@ -152,6 +152,10 @@ function runbanner()
 							$('.ben-tabs td').click(function(e) {
 								if(!$(this).hasClass('curent'))
 								{
+									if(!$(this).hasClass('movieinfo'))
+										$f().pause();
+									else
+										$f().play();
 									$('.ben-tabs td').removeClass('curent');
 									$(this).addClass('curent');
 									showTabItem($(this).attr("ref"));
@@ -354,6 +358,7 @@ function runbanner()
                             });*/
 							function showTabItem(str)
 							{
+								
 								//$('.ben-tabs td').removeClass('curent');
 								//$('.'+str).addClass('curent');
 								$(".ben-tabs-item").fadeOut(function(){
