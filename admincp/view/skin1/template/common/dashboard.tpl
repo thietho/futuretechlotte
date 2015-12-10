@@ -75,7 +75,7 @@
                     	(258px x 143px)
                         <img id="qc<?php echo $i?>_preview" src="<?php echo $qc[$i]['imagethumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qc<?php echo $i?>','single')"/>
-                        (1080px x 450px)
+                        (1080px x 500px)
                         <input type="hidden" id="qcbanner<?php echo $i?>_fileid" name="qcbanner<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/>
                         <img id="qcbanner<?php echo $i?>_preview" src="<?php echo $qcbanner[$i]['imagethumbnail']?>"/>
                         <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qcbanner<?php echo $i?>','single')"/>

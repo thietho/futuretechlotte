@@ -30,7 +30,7 @@
                         
                     </p>
                     <p>
-                        <label>Icon(196x304)</label>
+                        <label>Icon(196x279)</label>
                         
                         <input type="hidden" id="icone_fileid" name="icone_fileid" value="<?php echo $item['icone']?>"/><br />
                         <img id="icone_preview" src="<?php echo $item['iconethumbnail']?>"/>

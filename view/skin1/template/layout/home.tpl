@@ -24,7 +24,7 @@
 
 <link href="view/skin1/css/style.css" rel="stylesheet">
 
-<body oncontextmenu="return false">
+<body>
 	<div id="ben-body">
     <div id="ben-main">
     	<?php echo $header?>

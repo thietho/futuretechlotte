@@ -2,6 +2,8 @@
 // HTTP
 define('HTTP_IMAGE', 'http://localhost:81/futuretechlotte/file/');
 define('HTTP_SERVER', 'http://localhost:81/futuretechlotte/');
+//define('HTTP_IMAGE', 'http://192.168.0.6:81/futuretechlotte/file/');
+//define('HTTP_SERVER', 'http://192.168.0.6:81/futuretechlotte/');
 
 // HTTPS
 define('HTTPS_SERVER', '');

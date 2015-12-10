@@ -3,7 +3,7 @@
             <div class="ben-section">
             	<div id="ben-maincontent">
                 	<div >
-                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="450px"/>
+                    	<img id="ben-main-banner" src="<?php echo $listfilm[0]['bannerthumbnail']?>" width="1080px" height="500px"/>
                     </div>
                     
 					<style>
@@ -27,7 +27,7 @@
                                 <tr>
                                     <?php foreach($listfilm as $key => $film){ ?>
                                     <td>
-                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="304" /></a>
+                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="279" /></a>
                                     </td>
                                     <script language="javascript">
                                         arrkey.push("<?php echo $film['id']?>");
@@ -49,7 +49,7 @@ var t;
 $(document).ready(function(e) {
 	
     setTimeout('runbanner()',1000);
-
+	$('body').css('overflow','hidden');
 });
 $('body').click(function(e) {
     clearTimeout(t);
@@ -58,6 +58,7 @@ $('body').click(function(e) {
 			$('.ben-tabs td').removeClass('curent');
 			$('.movieinfo').addClass('curent');
 			showTabItem('movieinfo');
+			$f().play();
 		},30000);
 });
 function runbanner()
@@ -65,7 +66,7 @@ function runbanner()
 	marqueeInit({
 		uniqueid: 'mycrawler',
 		style: {
-			'height': '320px',
+			'height': '295px',
 			'width': '1030px',
 			'background':'#7A7C7E'
 		},
@@ -79,7 +80,7 @@ function runbanner()
 	marqueeInit({
 		uniqueid: 'mycrawlercoming',
 		style: {
-			'height': '320px',
+			'height': '295px',
 			'width': '1030px',
 			'background':'#7A7C7E'
 		},
@@ -161,222 +162,12 @@ function runbanner()
 									showTabItem($(this).attr("ref"));
 								}
                             });
-							/*$('.webcam').click(function(e) {
-                                $f().pause();
-								var eid = "webcamform";
-								$('body').append('<div id="'+eid+'" style="display:none"></div>');
-								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Webcam');
-									$("#"+eid).dialog({
-										autoOpen: false,
-										show: "blind",
-										hide: "explode",
-										width: 670,
-										height: 595,
-										modal: true,
-										close:function()
-											{
-												Webcam.reset();
-												Webcam.set({
-													width: 258,
-													height: 193,
-													image_format: 'jpeg',
-													jpeg_quality: 90
-												});
-												Webcam.attach( '#bottomcam' );
-												$("#"+eid).remove();
-												$('body').css('overflow','auto');
-												$('#moviecontent').show();
-												$f().play();
-												
-											},
-										buttons: {
-											
-											'Đóng': function() 
-											{
-												
-												$("#"+eid).dialog( "close" );
-												
-											},
-										}
-									});
-								
-									
-									$("#"+eid).html('<div id="my_camera"></div>');
-									//$("#"+eid).html($('#bottomcam').html());
-									$("#"+eid).dialog("open");
-									$('#moviecontent').hide();
-									Webcam.reset();
-									Webcam.set({
-										width: 640,
-										height: 480,
-										image_format: 'jpeg',
-										jpeg_quality: 90
-									});
-									Webcam.attach( '#my_camera' );
-                            });
-							$('.cinemaloction').click(function(e) {
-								$f().pause();
-								var eid = "mediaform";
-								$('body').append('<div id="'+eid+'" style="display:none"></div>');
-								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Cinema Location');
-									$("#"+eid).dialog({
-										autoOpen: false,
-										show: "blind",
-										hide: "explode",
-										width: window.innerWidth,
-										height: window.innerHeight,
-										modal: true,
-										close:function()
-											{
-												$("#"+eid).remove();
-												$('body').css('overflow','auto');
-												$('#moviecontent').show();
-												$f().play();
-											},
-										buttons: {
-											
-											'Đóng': function() 
-											{
-												
-												$("#"+eid).dialog( "close" );
-												
-											},
-										}
-									});
-									$('#moviecontent').hide();
-									$("#"+eid).dialog("open");
-									$("#"+eid).html($('#cinemaloction').html());
-									
-                            });
-							$('.ticketprice').click(function(e) {
-								
-                                $f().pause();
-								var eid = "mediaform";
-								$('body').append('<div id="'+eid+'" style="display:none"></div>');
-								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Ticket Price');
-									$("#"+eid).dialog({
-										autoOpen: false,
-										show: "blind",
-										hide: "explode",
-										width: window.innerWidth,
-										height: window.innerHeight,
-										modal: true,
-										close:function()
-											{
-												$("#"+eid).remove();
-												$('body').css('overflow','auto');
-												$('#moviecontent').show();
-												$f().play();
-											},
-										buttons: {
-											
-											'Đóng': function() 
-											{
-												
-												$("#"+eid).dialog( "close" );
-												
-											},
-										}
-									});
-									$('#moviecontent').hide();
-									$("#"+eid).dialog("open");
-									$("#"+eid).html($('#ticketprice').html());
-								
-                            });
-							$('.event').click(function(e) {
-                                $f().pause();
-								var eid = "eventform";
-								$('body').append('<div id="'+eid+'" style="display:none"></div>');
-								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Event');
-									$("#"+eid).dialog({
-										autoOpen: false,
-										show: "blind",
-										hide: "explode",
-										width: window.innerWidth,
-										height: window.innerHeight,
-										modal: true,
-										close:function()
-											{
-												$("#"+eid).remove();
-												$('body').css('overflow','auto');
-												$('#moviecontent').show();
-												$f().play();
-											},
-										buttons: {
-											
-											'Đóng': function() 
-											{
-												
-												$("#"+eid).dialog( "close" );
-												
-											},
-										}
-									});
-									$('#moviecontent').hide();
-									$("#"+eid).dialog("open");
-									$("#"+eid).html($('#allbanner').html());
-									
-                            });
 							
-							$('.timeshowing').click(function(e) {
-                                $f().pause();
-								var eid = "mediaform";
-								$('body').append('<div id="'+eid+'" style="display:none"></div>');
-								$('body').css('overflow','hidden');
-								$("#"+eid).attr('title','Time Show');
-									$("#"+eid).dialog({
-										autoOpen: false,
-										show: "blind",
-										hide: "explode",
-										width: window.innerWidth,
-										height: window.innerHeight,
-										modal: true,
-										close:function()
-											{
-												$("#"+eid).remove();
-												$('body').css('overflow','auto');
-												$('#moviecontent').show();
-												$f().play();
-											},
-										buttons: {
-											
-											'Đóng': function() 
-											{
-												
-												$("#mediaform").dialog( "close" );
-												
-											},
-										}
-									});
-									$('#moviecontent').hide();
-									$("#"+eid).dialog("open");
-									$("#"+eid).html($('#timeshowing').html());
-                            });*/
 							function showTabItem(str)
 							{
 								
-								//$('.ben-tabs td').removeClass('curent');
-								//$('.'+str).addClass('curent');
 								$(".ben-tabs-item").fadeOut(function(){
 									$('#'+str).fadeIn();
-									//var html = $('#'+str).html();
-									
-									//html=html.replace(/<video/g,'<embed');
-									//html=html.replace(/\/video/g,'/embed');
-									//alert(html)
-									//$(".ben-tabs-show").html(html);
-									//$(".ben-tabs-show").fadeIn('slow',function(){
-										//$('.ben-tabs-show video').each(function(index, element) {
-                                           
-                                        //});
-										
-										//$('.ben-tabs-show video').removeAttr("controls");
-										//$('.ben-tabs-show video').attr("autoplay","autoplay");
-									//});
 								})
 								
 								
@@ -384,14 +175,7 @@ function runbanner()
 							}
 							showTabItem('movieinfo');
 							function showFilm(id)
-							{
-								/*$('#ben-main-banner').attr('src',$('#film'+pos+' #banner').html());
-								$('#timeshowing').html($('#film'+pos+' #film_timeshowing').html());
-								$('#cinemaloction').html($('#film'+pos+' #film_cinemaloction').html());
-								$('#movieinfo').html($('#film'+pos+' #film_movieinfo').html());
-								$('#ticketprice').html($('#film'+pos+' #film_ticketprice').html());*/
-								//var id = arrkey[pos];
-								
+							{	
 								$.getJSON("?route=services/movies/getMovies",
 									{
 										col:'id',
@@ -432,35 +216,11 @@ function runbanner()
 												return false;
 											},
 											
-											// disable default controls
-       										//plugins: {controls: null},
-											/*onBeforePause: function() {
-												return false;
-											}*/
 										});
 										
-										//$('#moviecontent').html(data.movies[0].movieinfo);
 										
-										/*jwplayer("moviecontent").setup({
-        
-											file: data.movies[0].movieinfo_path,
-											height: 479,
-											width: 820,
-											autostart: true,
-											modes: [
-												
-												{ type: "flash", src: "<?php echo DIR_COMPONENT?>player/player.swf" }
-											],
-											onComplete:function(event) { alert('Complete!'); return true; }
-										});
-										jwplayer("moviecontent").play();
-   										jwplayer().onComplete( function(event) { alert('Complete!'); return true; } );*/
 										$('#timeshowing').html(data.movies[0].timeshow);
-										//$('#cinemaloction').html(data.movies[0].cinemalocation);
-										//$('#ticketprice').html(data.movies[0].ticketprice);
 										showTabItem('movieinfo');
-										/*$('embed').attr('width','820');
-										$('embed').attr('height','479');*/
 									});
 								
 							}
@@ -506,7 +266,7 @@ function runbanner()
                                 <tr>
                                     <?php foreach($listfilmcoming as $key => $film){ ?>
                                     <td>
-                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="304" /></a>
+                                        <a onclick="showFilm1(<?php echo $pindex++ ?>)"><img src="<?php echo $film['iconethumbnail']?>" width="196" height="279" /></a>
                                     </td>
                                     <script language="javascript">
                                         arrkey.push("<?php echo $film['id']?>");
@@ -525,7 +285,7 @@ function runbanner()
                         <table class="table-promotion">
                             <tr>
                                 <?php for($i=1;$i<=3;$i++){ ?>
-                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());clearTimeout(t);"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="258" height="143" /></a></td>
+                                <td><a onclick="$('#ben-main-banner').attr('src',$('#qcbanner<?php echo $i?>').html());"><img src="<?php echo HTTP_IMAGE.$qc[$i]['filepath']?>" width="258" height="143" /></a></td>
                                 <?php }?>
                                 <td>
                                 	<div id="camview">
